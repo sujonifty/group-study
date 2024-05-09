@@ -74,7 +74,7 @@ const Navbar = () => {
                                         <div className="dropdown dropdown-align dropdown-end">
                                             <div tabIndex={0} role="button" className=" m-1">
                                                 <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                                                    <img src={user.photoURl} title={user.displayName} className="object-cover w-full h-full" alt="avatar" />
+                                                    <img src={user.photoURL} title={user.displayName} className="object-cover w-full h-full" alt="avatar" />
                                                 </div>
                                             </div>
                                             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box ">
@@ -119,8 +119,8 @@ const Navbar = () => {
                         <div className="navbar-end">
                             <div className="dropdown dropdown-align dropdown-end">
                                 <div tabIndex={0} role="button" className=" m-1">
-                                    <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                                        <img src={user.photoURl} title={user.displayName} className="object-cover w-full h-full" alt="avatar" />
+                                    <div className="w-10 h-10 overflow-hidden border-2 border-gray-400 rounded-full">
+                                        <img src={user.photoURL} title={user.displayName} className="object-cover w-full h-full" alt="userImg" />
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box ">
