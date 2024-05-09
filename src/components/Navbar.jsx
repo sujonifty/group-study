@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 
@@ -35,7 +35,9 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">EduNest</a>
+                    <Link to="/">
+                        <img src="https://i.ibb.co/8xnSHfV/logo.png" className='w-32 rounded-lg' alt="logo" />
+                    </Link>
                 </div>
                 <div className="navbar-center hidden  lg:flex">
                     <ul className="menu menu-horizontal space-x-4 px-1">
@@ -47,7 +49,7 @@ const Navbar = () => {
 
 
                     <div className="dropdown dropdown-align dropdown-end">
-                        <div tabIndex={0} role="button" className="btn m-1">
+                        <div tabIndex={0} role="button" className=" m-1">
                             <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
                                 <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" className="object-cover w-full h-full" alt="avatar" />
                             </div>
