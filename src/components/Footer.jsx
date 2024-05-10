@@ -5,25 +5,26 @@ const Footer = () => {
     return (
         <footer className="bg-white dark:bg-gray-900">
             <div className="container px-6 py-12 mx-auto">
-                <div className="md:flex  md:-mx-3 md:items-center md:justify-center">
-                    <h1 className="text-xl font-semibold tracking-tight text-gray-800 md:mx-3 xl:text-2xl dark:text-white">Subscribe our newsletter to get update.</h1>
+                <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
 
-                    <div className="flex flex-col justify-center mx-auto mt-6 space-y-3 md:space-y-0 md:flex-row">
-                        <input
-                            id="email"
-                            type="text"
-                            className="px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
-                            placeholder="Email Address"
-                        />
-
-                        <button
-                            className="w-full px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80"
-                        >
-                            Subscribe
-                        </button>
+                <section className="flex flex-col  mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 md:flex-row md:h-48">
+                    <div className="md:flex md:items-center md:justify-center md:w-1/2 md:bg-gray-700 md:dark:bg-gray-800">
+                        <div className="px-6 py-6 md:px-8 md:py-0">
+                            <h2 className="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100">Sign Up For <span className="text-blue-600 dark:text-blue-400 md:text-blue-300">Assignment</span> Updates</h2>
+                            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400">Stay informed about the latest updates and news related to our projects.</p>
+                        </div>
                     </div>
 
-                </div>
+                    <div className="flex items-center justify-center pb-6 md:py-0 md:w-1/2">
+                        <form>
+                            <div className="flex flex-col p-1.5 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
+                                <input className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" name="email" placeholder="Enter your email" aria-label="Enter your email" />
+                                <button className="px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
 
                 <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
 
