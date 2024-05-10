@@ -7,15 +7,15 @@ const CreateAssignments = () => {
     const handleAddAssignment = (e) => {
         e.preventDefault();
         const title = e.target.title.value;
+        const description = e.target.description.value;
         const photo = e.target.photo.value;
         const mark = e.target.mark.value;
-        const time = e.target.time.value;
         const level = e.target.level.value;
-        const description = e.target.description.value;
+        const time = e.target.time.value;
         const userName = user?.displayName
         const userEmail = user?.email
         const assignmentInfo = { title, userName, userEmail, photo, mark, time, level, description }
-
+console.log(level,mark)
         //sent data to the server site
         fetch('http://localhost:5000/addAssignment', {
             method: 'POST',
@@ -62,20 +62,21 @@ const CreateAssignments = () => {
                         <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Marks</label>
                         <input id="mark" name="mark" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
-                    <div>
+                    <div className="form-control">
                         <label className="text-gray-700 dark:text-gray-200" htmlFor="password">Difficulty Level</label>
-                        <select name="level" className="select select-bordered block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                        <select  name="level" className="select select-bordered block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                             <option disabled selected>Level</option>
                             <option value="">Easy</option>
                             <option value="">Medium</option>
                             <option value="">Hard</option>
 
                         </select>
+                        
                     </div>
 
                     <div>
                         <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Due Time</label>
-                        <input id="mark" name="time" type="date" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input id="time" name="time" type="date" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
                 </div>
 

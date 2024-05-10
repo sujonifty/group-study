@@ -30,7 +30,7 @@ const Navbar = () => {
     //     <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/login">Login</NavLink>
     // </>
     const links2 = <>
-        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/myAttempted">MyAttempted </NavLink>
+        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/mySubmission">My submission </NavLink>
         <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} >
             <button onClick={handleLogOut}>Logout</button>
         </NavLink>
