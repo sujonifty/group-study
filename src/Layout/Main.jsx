@@ -8,7 +8,7 @@ const Main = () => {
         <div>
             <div className="max-w-7xl mx-auto">
                 <Navbar></Navbar>
-                <div className="min-h-[calc(100vh-350px)]">
+                <div className="min-h-[calc(100vh-550px)]">
                     <Outlet></Outlet>
                 </div>
             </div>
