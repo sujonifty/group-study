@@ -7,16 +7,27 @@ import Swal from "sweetalert2";
 const CardDetails = () => {
     const cardInfo = useLoaderData();
     const { user } = useContext(authContext);
+    const { _id, title, userName, userEmail, photo, mark, time, level, description } = cardInfo;
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        // const title = e.target.title.value;
+        // const description = e.target.description.value;
+        // const photo = e.target.photo.value;
+        // const mark = e.target.mark.value;
+        // const level = e.target.level.value;
+        // const time = e.target.time.value;
+        const authorName = e.target.authorName.value;
+        const authorEmail = e.target.authorEmail.value;
+        const examineeDescription = e.target.examineeDescription.value;
         const pdf = e.target.pdf.value;
-        const description = e.target.description.value;
-        const userName = user?.displayName
-        const userEmail = user?.email
+        const examineeName = user?.displayName
+        const examineeEmail = user?.email
+        const examineePhoto = user?.photoURL
         const status = "pending"
-        const info = { userName, userEmail, pdf, description,status }
-        //sent data to the server site
+        const info = { title, userName, userEmail, photo, mark, time, level, description, examineeDescription, pdf, status,authorEmail, authorName, examineeName, examineeEmail, examineePhoto }
+        
         console.log(info);
         fetch('http://localhost:5000/submittedAssignment', {
             method: 'POST',
@@ -28,19 +39,20 @@ const CardDetails = () => {
             .then(res => res.json())
             .then(data => {
 
-                if (data.insertedId) {
+                if(data.insertedId){
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Assignment submitted successfully',
+                        text: 'Assignment Submission successfully',
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })
                 }
+
             })
     }
 
     // console.log(cardInfo)
-    const { _id, title, userName, userEmail, photo, mark, time, level, description } = cardInfo;
+
 
     return (
         <section className="bg-white dark:bg-gray-900">
@@ -61,53 +73,139 @@ const CardDetails = () => {
                             {description}
                         </p>
 
-                        <p className=" mt-2 ">Level: {level}</p>
-                        <p className=" mt-2 ">Assignment marks: {mark}</p>
-                        <p className=" mt-2 ">Dead line: {time}</p>
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <p className=" mt-2 ">Level: {level}</p>
+                                <p className=" mt-2 ">Assignment marks: {mark}</p>
+                                <p className=" mt-2 ">Dead line: {time}</p>
+                            </div>
 
-                        <div className="flex items-center mt-6">
-                            <img className="object-cover object-center w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
+                            <div>
+                                {
+                                    cardInfo.editorEmail ?
+                                        <>
+                                            <div className="flex  items-center mt-6">
+                                                <img className="object-cover object-center w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
 
-                            <div className="mx-4">
-                                <h1 className="text-sm text-gray-700 dark:text-gray-200">{userName}</h1>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">{userEmail}</p>
+                                                <div className="mx-4">
+                                                    <h1 className="text-sm text-gray-700 dark:text-gray-200">Author: {userName}</h1>
+                                                    <p className="text-sm text-gray-500 dark:text-gray-400">{userEmail}</p>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex items-center mt-6">
+                                                <img className="object-cover object-center w-10 h-10 rounded-full" src={cardInfo?.editorPhoto} alt="" />
+
+                                                <div className="mx-4">
+                                                    <h1 className="text-sm text-gray-700 dark:text-gray-200">Editor: {cardInfo?.editorName}</h1>
+                                                    <p className="text-sm text-gray-500 dark:text-gray-400">{cardInfo.editorEmail}</p>
+                                                </div>
+                                            </div>
+                                        </>
+                                        :
+                                        <>
+                                            <div className="flex items-center mt-6">
+                                                <img className="object-cover object-center w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
+
+                                                <div className="mx-4">
+                                                    <h1 className="text-sm text-gray-700 dark:text-gray-200">Author: {userName}</h1>
+                                                    <p className="text-sm text-gray-500 dark:text-gray-400">{userEmail}</p>
+                                                </div>
+                                            </div>
+
+                                        </>
+                                }
                             </div>
                         </div>
-                        {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                        <button className="btn" onClick={() => document.getElementById('my_modal_4').showModal()}>Take assignment</button>
-                        <dialog id="my_modal_4" className="modal">
-                            <div className="modal-box w-11/12 max-w-5xl">
-                                <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-                                    <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Create Your Assignment</h2>
+                        <div className=" flex items-center mx-auto">
 
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-                                            <div>
-                                                <label className="text-gray-700 dark:text-gray-200" htmlFor="username">PDF Link</label>
-                                                <input id="title" name="pdf" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                            {/*  submit assignment section */}
+
+                            {/* You can open the modal using document.getElementById('ID').showModal() method */}
+                            <button className="btn w-11/12" onClick={() => document.getElementById('my_modal_4').showModal()}>Take assignment</button>
+                            <dialog id="my_modal_4" className="modal">
+                                <div className="modal-box w-11/12 lg:min-w-4xl max-w-5xl">
+                                    <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+                                        <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Submit Your Assignment</h2>
+
+                                        <form onSubmit={handleSubmit}>
+                                            <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                                                <div>
+                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="username">Title</label>
+                                                    <input id="title" name="title" readOnly defaultValue={title} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                </div>
+
+                                                <div>
+                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Description</label>
+                                                    <input id="description" name="description" readOnly defaultValue={description} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                </div>
+
+                                                <div>
+                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="password">Thumbnail Image</label>
+                                                    <input id="photo" name="photo" readOnly defaultValue={photo} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                </div>
+
+                                                <div>
+                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Marks</label>
+                                                    <input id="mark" name="mark" readOnly defaultValue={mark} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                </div>
+                                                <div className="form-control">
+                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Assignment Type</label>
+                                                    <select name="level" className="select select-bordered w-full ">
+                                                        <option readOnly defaultValue={level} selected>{level}</option>
+                                                        <option>Easy</option>
+                                                        <option>Medium</option>
+                                                        <option>Hard</option>
+                                                    </select>
+
+                                                </div>
+
+                                                <div>
+                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Due Time</label>
+                                                    <input id="time" name="time" readOnly defaultValue={time} type="date" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                </div>
+
+                                                <div>
+                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Author name</label>
+                                                    <input id="authorName" name="authorName" defaultValue={userName} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                </div>
+
+                                                <div>
+                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="username">Author Email</label>
+                                                    <input id="title" name="authorEmail" defaultValue={userEmail} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                </div>
+                                                <div>
+                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="username">PDF Link</label>
+                                                    <input id="title" name="pdf" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                </div>
+
+                                                <div>
+                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Examinee Description</label>
+                                                    <input id="examineeDescription" name="examineeDescription" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                </div>
+
                                             </div>
 
-                                            <div>
-                                                <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Description</label>
-                                                <input id="description" name="description" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                            <div className="flex justify-center mt-6">
+                                                <input type="submit" value="Submit" className="font-bold px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-orange-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" />
                                             </div>
-                                        </div>
+                                        </form>
+                                      
+                                    </section>
 
-                                        <div className="flex justify-center mt-6">
-                                            <input type="submit" value="Submit" className="font-bold px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-orange-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" />
-                                        </div>
-                                    </form>
-                                </section>
-                                <div className="modal-action">
-                                    <form method="dialog">
-                                        {/* if there is a button, it will close the modal */}
-                                        <button className="btn">Close</button>
-                                    </form>
+                                    <div className="modal-action">
+                                        <form method="dialog">
+                                            {/* if there is a button, it will close the modal */}
+                                            <button className="btn">Close</button>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
-                        </dialog>
+                            </dialog>
+                        </div>
+
                     </div>
                 </div>
+
             </div>
         </section>
     );

@@ -62,11 +62,10 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
     return (
         <div className="w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
             <img className="object-cover object-center w-full h-56" src={photo} alt="avatar" />
-
             <div className="flex items-center px-6 py-3 bg-gray-900">
-
                 <h1 className="mx-3 text-lg font-semibold text-white">{title}</h1>
             </div>
+            
 
             <div className="px-6 py-4 space-y-5">
                 <h1 className="text-xl font-semibold text-gray-800 dark:text-white">Tasks</h1>
@@ -101,18 +100,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
 
                     </div>
                 </div>
-                {
-                    user?
-                        <div className="flex items-center mt-6">
-                            <img className="object-cover object-center w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
 
-                            <div className="mx-4">
-                                <h1 className="text-sm text-gray-700 dark:text-gray-200">{userName}</h1>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">{userEmail}</p>
-                            </div>
-                        </div>
-                        :""
-                }
             </div>
 
             <div className="text-center mt-5">
