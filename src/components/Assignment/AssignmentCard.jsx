@@ -5,9 +5,10 @@ import { authContext } from "../../Provider/AuthProvider";
 import { useContext } from "react";
 
 const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
-    const { _id, userEmail, title, photo, mark, time, level, description } = assignment;
+    const { _id, userEmail, userName, title, photo, mark, time, level, description } = assignment;
     const { user } = useContext(authContext);
 
+    //delete section
     const handleDelete = (_id) => {
         if (userEmail === user.email) {
             Swal.fire({
@@ -56,6 +57,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
             });
         }
     }
+
     // console.log(assignment)
     return (
         <div className="w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
@@ -92,12 +94,25 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
                         <Link to={`/update/${_id}`}>
                             <button className="btn  bg-violet-300 ">update</button>
                         </Link>
+
                         <Link>
                             <button onClick={() => handleDelete(_id)} type="button" className=" btn  bg-red-300  dark:bg-violet-600 dark:text-gray-50">Delete</button>
                         </Link>
 
                     </div>
                 </div>
+                {
+                    user?
+                        <div className="flex items-center mt-6">
+                            <img className="object-cover object-center w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
+
+                            <div className="mx-4">
+                                <h1 className="text-sm text-gray-700 dark:text-gray-200">{userName}</h1>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">{userEmail}</p>
+                            </div>
+                        </div>
+                        :""
+                }
             </div>
 
             <div className="text-center mt-5">

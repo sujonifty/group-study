@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import AssignmentCard from "../../components/Assignment/AssignmentCard";
 import 'react-tabs/style/react-tabs.css';
+import PropTypes from 'prop-types';
 
 const Assignment = () => {
     const assign = useLoaderData();
@@ -46,5 +47,9 @@ const Assignment = () => {
         </div>
     );
 };
-
+Assignment.propTypes = {
+    assignment: PropTypes.object,
+    assignments: PropTypes.array,
+    AssignmentCard: PropTypes.object
+}
 export default Assignment;
