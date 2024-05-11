@@ -31,7 +31,7 @@ const MySubmission = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/assignments/${_id}`, {
+                fetch(`http://localhost:5000/submission/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -63,22 +63,30 @@ const MySubmission = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>User Name</th>
                             <th>Title</th>
-                            <th>Level</th>
-                            <th>Marks</th>
-                            <th>Due Date</th>
-                            <th>Delete</th>
+                            <th>Total Marks</th>
+                            <th>Obtain Marks</th>
+                            <th>Status</th>
+                            <th>Feedback</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             myAssignments.map(item => <tr key={item._id}>
-                                <td>{item.userName}</td>
                                 <td>{item.title}</td>
-                                <td>{item.level}</td>
                                 <td>{item.mark}</td>
-                                <td>{item.time}</td>
+                                <td>
+                                    {
+                                        item.obtainMark? item.obtainMark : 'None'
+                                    }
+                                    </td>
+                                <td>{item.status}</td>
+                                <td>
+                                {
+                                    item.feedback? item.feedback:'None'
+                                }
+                                </td>
                                 <td>
                                     <NavLink><button onClick={() => handleDelete(item._id)} type="button" className=" btn flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50">Delete</button></NavLink>
                                 </td>
