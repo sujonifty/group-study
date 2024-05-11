@@ -5,7 +5,8 @@ import AssignmentCard from "../../components/Assignment/AssignmentCard";
 import 'react-tabs/style/react-tabs.css';
 
 const Assignment = () => {
-    const assignments = useLoaderData();
+    const assign = useLoaderData();
+    const [assignments, setAssignments]=useState(assign);
     return (
         <div>
             <h1>Assignments</h1>
@@ -20,7 +21,7 @@ const Assignment = () => {
                     <div className='grid grid-cols-1 gap-5 mt-10 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                         {assignments.filter(item => item.level === 'Easy')
                             .map(assignment => (
-                                <AssignmentCard key={assignment._id} assignment={assignment}></AssignmentCard>
+                                <AssignmentCard key={assignment._id} assignment={assignment} assignments={assignments} setAssignments={setAssignments}></AssignmentCard>
                             ))}
                     </div>
                 </TabPanel>
