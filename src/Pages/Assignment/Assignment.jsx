@@ -2,11 +2,10 @@ import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import AssignmentCard from "../../components/Assignment/AssignmentCard";
+import 'react-tabs/style/react-tabs.css';
 
 const Assignment = () => {
-    const allAssignment = useLoaderData();
-    // console.log(allAssignment)
-    const [assignments, setAssignment] = useState(allAssignment);
+    const assignments = useLoaderData();
     return (
         <div>
             <h1>Assignments</h1>

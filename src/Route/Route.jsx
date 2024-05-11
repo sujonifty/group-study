@@ -9,6 +9,7 @@ import PendingAssignments from "../Pages/PendingAssignments/PendingAssignments";
 import CreateAssignments from "../Pages/CreateAssignments/CreateAssignments";
 import PrivateRoute from "./PrivateRoute";
 import MySubmission from "../Pages/MySubmission/MySubmission";
+import CardDetails from "../components/AssignmentComponemts/CardDetails";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
                 path: "/mySubmission",
                 element: <MySubmission></MySubmission>,
                 // loader: ({params})=>fetch(`http://localhost:5000/assignments/${params.email}`)
+            },
+            {
+                path: "/cardDetails/:id",
+                element: <CardDetails></CardDetails>,
+                loader: ({params})=>fetch(`http://localhost:5000/cardDetails/${params.id}`)
             },
             {
                 path: "/register",

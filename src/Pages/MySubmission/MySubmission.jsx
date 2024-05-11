@@ -10,10 +10,10 @@ const MySubmission = () => {
 
     // console.log(user.email)
     useEffect(() => {
-        fetch(`http://localhost:5000/mySubmission/${user.email}`)
+        fetch(`http://localhost:5000/mySubmission/${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log("data",data)
+                // console.log("data",data)
                 setMyAssignments(data)
             })
     }, [user])
@@ -38,11 +38,21 @@ const MySubmission = () => {
                     .then(data => {
                         // console.log(data);
                         if (data.deletedCount > 0) {
+                            // Swal.fire({
+                            //     title: "Deleted!",
+                            //     text: "Your Assignment has been deleted.",
+                            //     icon: "success"
+                            // });
+
                             Swal.fire({
+                                imageUrl: "https://i.ibb.co/9WHSb7Y/delete.jpg",
                                 title: "Deleted!",
-                                text: "Your TouristSpot has been deleted.",
-                                icon: "success"
-                            });
+                                text: "Your Assignment has been deleted.",
+                                imageWidth: 400,
+                                imageHeight: 200,
+                                icon: "success",
+                                imageAlt: "Custom image"
+                              });
                             const remains = myAssignments.filter(singleItem => singleItem._id !== _id);
                             setMyAssignments(remains);
                         }
