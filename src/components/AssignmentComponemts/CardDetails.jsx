@@ -12,12 +12,6 @@ const CardDetails = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // const title = e.target.title.value;
-        // const description = e.target.description.value;
-        // const photo = e.target.photo.value;
-        // const mark = e.target.mark.value;
-        // const level = e.target.level.value;
-        // const time = e.target.time.value;
         const authorName = e.target.authorName.value;
         const authorEmail = e.target.authorEmail.value;
         const examineeDescription = e.target.examineeDescription.value;
