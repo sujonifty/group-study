@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
+import axios from "axios";
 
 
 
 export const authContext = createContext(null);
-const AuthProvider = ({children}) => {
-    const [user, setUser]=useState(null);
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
-
     const googleProvider = new GoogleAuthProvider();
-   
+
     // create user by email & password
     const createUser = (email, password) => {
         setLoading(true);
@@ -26,8 +26,8 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
 
     }
-      //sign in by google
-      const createGoogleUser = () => {
+    //sign in by google
+    const createGoogleUser = () => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
 
@@ -39,8 +39,24 @@ const AuthProvider = ({children}) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            const email = currentUser?.email || user?.email;
+            const loggedUser = { email: email };
+
             setUser(currentUser);
             setLoading(false);
+
+            if (currentUser) {
+                axios.post("http://localhost:5000/jwtAuth", loggedUser, { withCredentials: true })
+                    .then(res => {
+                        // console.log( 'token res',res.data);
+                    })
+            }
+            else {
+                axios.post("http://localhost:5000/remove", loggedUser, { withCredentials: true })
+                    .then(res => {
+                        console.log('token remove', res.data);
+                    })
+            }
         });
         return () => {
             unSubscribe();

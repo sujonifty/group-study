@@ -5,15 +5,15 @@ import { useContext, useEffect } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 
 const PendingCard = ({ item, pendingItems, setPendingItems }) => {
-    const {user}= useContext(authContext)
-const { _id, title, mark, examineeDescription, pdf, status, examineeName, examineeEmail, examineePhoto } =item
+    const { user } = useContext(authContext)
+    const { _id, title, mark, examineeDescription, pdf, status, examineeName, examineeEmail, examineePhoto } = item
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const obtainMark = e.target.obtainMark.value;
         const feedback = e.target.feedback.value;
         const status = "completed"
-        const info = { obtainMark,feedback,status }
+        const info = { obtainMark, feedback, status }
 
         console.log(info);
         fetch(`http://localhost:5000/giveMark/${_id}`, {
@@ -44,10 +44,10 @@ const { _id, title, mark, examineeDescription, pdf, status, examineeName, examin
                 // console.log("data",data)
                 setPendingItems(data)
             })
-    }, [user,setPendingItems])
+    }, [user, setPendingItems])
     return (
         <tr>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+            <td className="px-4 py-4 text-sm text-base-content dark:text-gray-300 whitespace-nowrap">
                 <div className="flex items-center gap-x-2">
                     <img className="object-cover w-8 h-8 rounded-full" src={examineePhoto} alt="" />
                     <div>
@@ -56,10 +56,10 @@ const { _id, title, mark, examineeDescription, pdf, status, examineeName, examin
                     </div>
                 </div>
             </td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{title}</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{mark}</td>
-            <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
+            <td className="px-4 py-4 text-sm text-base-content dark:text-gray-300 whitespace-nowrap">{title}</td>
+            <td className="px-4 py-4 text-sm text-base-content dark:text-gray-300 whitespace-nowrap">{mark}</td>
+            <td className="px-4 py-4 text-sm font-medium text-base-content whitespace-nowrap">
+                <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-base-content  bg-emerald-100/70 dark:bg-gray-800">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -68,39 +68,51 @@ const { _id, title, mark, examineeDescription, pdf, status, examineeName, examin
             </td>
 
             <td className="px-4 py-4 text-sm whitespace-nowrap">
-                <div className="flex items-center gap-x-6">
+                {/* You can open the modal using document.getElementById('ID').showModal() method */}
+                <button className="btn" onClick={() => document.getElementById('my_modal_4').showModal()}>preview</button>
+                <dialog id="my_modal_4" className="modal">
+                    <div className="modal-box w-11/12 max-w-5xl">
+                        <iframe src={pdf} width="500" height="450">
 
-                    {/* <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
-                                                                Give Marks
-                                                            </button> */}
-                    {/* Open the modal using document.getElementById('ID').showModal() method */}
+                        </iframe>
+                        <div className="modal-action">
+                            <form method="dialog">
+                                {/* if there is a button, it will close the modal */}
+                                <button className="btn">Close</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+            </td>
+            <td className="px-4 py-4 text-sm whitespace-nowrap">
+                <div className="flex items-center gap-x-6">
                     <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>Give Marks</button>
                     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                         <div className="modal-box">
                             <h3 className="font-bold text-lg">Give feedback for this assignment</h3>
 
-                            <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-                                <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Submit Your Assignment</h2>
+                            <section className="max-w-4xl p-6 mx-auto bg-base-100 rounded-md shadow-md dark:bg-gray-800">
+                                <h2 className="text-lg font-semibold text-base-content capitalize dark:text-white">Submit Your Assignment</h2>
 
                                 <form onSubmit={handleSubmit}>
                                     <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                                         <div>
-                                            <label className="text-gray-700 dark:text-gray-200" htmlFor="username">PDF Link</label>
-                                            <input id="title" name="pdf" readOnly defaultValue={pdf} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                            <label className="text-base-content dark:text-gray-200" htmlFor="username">PDF Link</label>
+                                            <input id="title" name="pdf" readOnly defaultValue={pdf} type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                         </div>
 
                                         <div>
-                                            <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Examinee Description</label>
-                                            <input id="examineeDescription" readOnly defaultValue={examineeDescription} name="examineeDescription" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                            <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Examinee Description</label>
+                                            <input id="examineeDescription" readOnly defaultValue={examineeDescription} name="examineeDescription" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                         </div>
                                         <div>
-                                            <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Give Marks</label>
-                                            <input id="obtainMark" name="obtainMark" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                            <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Give Marks</label>
+                                            <input id="obtainMark" name="obtainMark" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                         </div>
 
                                         <div>
-                                            <label className="text-gray-700 dark:text-gray-200" htmlFor="password">Give Feedback</label>
-                                            <input id="feedback" name="feedback" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                            <label className="text-base-content dark:text-gray-200" htmlFor="password">Give Feedback</label>
+                                            <input id="feedback" name="feedback" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                         </div>
 
                                     </div>

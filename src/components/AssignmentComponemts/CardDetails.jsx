@@ -35,6 +35,7 @@ const CardDetails = () => {
 
                 if(data.insertedId){
                     Swal.fire({
+                        position: "top-end",
                         title: 'Success!',
                         text: 'Assignment Submission successfully',
                         icon: 'success',
@@ -49,9 +50,9 @@ const CardDetails = () => {
 
 
     return (
-        <section className="bg-white dark:bg-gray-900">
+        <section className="bg-base-100 ">
             <div className="container px-6 py-10 mx-auto">
-                <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">Assignment Tasks</h1>
+                <h1 className="text-2xl font-semibold text-base-content capitalize lg:text-3xl ">Assignment Tasks</h1>
 
                 <div className="mt-8 lg:-mx-6 lg:flex lg:items-center">
                     <img className="object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96" src={photo} alt="" />
@@ -59,11 +60,11 @@ const CardDetails = () => {
                     <div className="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6 ">
                         <p className="text-sm text-blue-500 uppercase">{title}</p>
 
-                        <a href="#" className="block mt-4 text-2xl font-semibold text-gray-800 hover:underline dark:text-white">
+                        <a href="#" className="block mt-4 text-2xl font-semibold text-base-content hover:underline ">
                             {title}
                         </a>
 
-                        <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
+                        <p className="mt-3 text-sm text-base-content  md:text-sm">
                             {description}
                         </p>
 
@@ -82,7 +83,7 @@ const CardDetails = () => {
                                                 <img className="object-cover object-center w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
 
                                                 <div className="mx-4">
-                                                    <h1 className="text-sm text-gray-700 dark:text-gray-200">Author: {userName}</h1>
+                                                    <h1 className="text-sm text-base-content dark:text-gray-200">Author: {userName}</h1>
                                                     <p className="text-sm text-gray-500 dark:text-gray-400">{userEmail}</p>
                                                 </div>
                                             </div>
@@ -91,7 +92,7 @@ const CardDetails = () => {
                                                 <img className="object-cover object-center w-10 h-10 rounded-full" src={cardInfo?.editorPhoto} alt="" />
 
                                                 <div className="mx-4">
-                                                    <h1 className="text-sm text-gray-700 dark:text-gray-200">Editor: {cardInfo?.editorName}</h1>
+                                                    <h1 className="text-sm text-base-content dark:text-gray-200">Editor: {cardInfo?.editorName}</h1>
                                                     <p className="text-sm text-gray-500 dark:text-gray-400">{cardInfo.editorEmail}</p>
                                                 </div>
                                             </div>
@@ -102,7 +103,7 @@ const CardDetails = () => {
                                                 <img className="object-cover object-center w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
 
                                                 <div className="mx-4">
-                                                    <h1 className="text-sm text-gray-700 dark:text-gray-200">Author: {userName}</h1>
+                                                    <h1 className="text-sm text-base-content dark:text-gray-200">Author: {userName}</h1>
                                                     <p className="text-sm text-gray-500 dark:text-gray-400">{userEmail}</p>
                                                 </div>
                                             </div>
@@ -117,34 +118,34 @@ const CardDetails = () => {
 
                             {/* You can open the modal using document.getElementById('ID').showModal() method */}
                             <button className="btn w-11/12" onClick={() => document.getElementById('my_modal_4').showModal()}>Take assignment</button>
-                            <dialog id="my_modal_4" className="modal">
-                                <div className="modal-box w-11/12 lg:min-w-4xl max-w-5xl">
-                                    <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-                                        <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Submit Your Assignment</h2>
+                            <dialog id="my_modal_4" className="modal ">
+                                <div className="modal-box w-6/12 lg:min-w-4xl max-w-5xl">
+                                    <section className="max-w-4xl p-6 mx-auto bg-base-100 rounded-md shadow-md ">
+                                        <h2 className="text-lg font-semibold text-base-content capitalize dark:text-white">Submit Your Assignment</h2>
 
                                         <form onSubmit={handleSubmit}>
                                             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                                                 <div>
-                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="username">Title</label>
-                                                    <input id="title" name="title" readOnly defaultValue={title} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                    <label className="text-base-content dark:text-gray-200" htmlFor="username">Title</label>
+                                                    <input id="title" name="title" readOnly defaultValue={title} type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 </div>
 
                                                 <div>
-                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Description</label>
-                                                    <input id="description" name="description" readOnly defaultValue={description} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                    <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Description</label>
+                                                    <input id="description" name="description" readOnly defaultValue={description} type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 </div>
 
                                                 <div>
-                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="password">Thumbnail Image</label>
-                                                    <input id="photo" name="photo" readOnly defaultValue={photo} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                    <label className="text-base-content dark:text-gray-200" htmlFor="password">Thumbnail Image</label>
+                                                    <input id="photo" name="photo" readOnly defaultValue={photo} type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 </div>
 
                                                 <div>
-                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Marks</label>
-                                                    <input id="mark" name="mark" readOnly defaultValue={mark} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                    <label className="text-base-content dark:text-gray-200" htmlFor="passwordConfirmation">Marks</label>
+                                                    <input id="mark" name="mark" readOnly defaultValue={mark} type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 </div>
                                                 <div className="form-control">
-                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Assignment Type</label>
+                                                    <label className="text-base-content dark:text-gray-200" htmlFor="passwordConfirmation">Assignment Type</label>
                                                     <select name="level" className="select select-bordered w-full ">
                                                         <option readOnly defaultValue={level} selected>{level}</option>
                                                         <option>Easy</option>
@@ -155,27 +156,27 @@ const CardDetails = () => {
                                                 </div>
 
                                                 <div>
-                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Due Time</label>
-                                                    <input id="time" name="time" readOnly defaultValue={time} type="date" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                    <label className="text-base-content dark:text-gray-200" htmlFor="passwordConfirmation">Due Time</label>
+                                                    <input id="time" name="time" readOnly defaultValue={time} type="date" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 </div>
 
                                                 <div>
-                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Author name</label>
-                                                    <input id="authorName" name="authorName" defaultValue={userName} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                    <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Author name</label>
+                                                    <input id="authorName" name="authorName" defaultValue={userName} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 </div>
 
                                                 <div>
-                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="username">Author Email</label>
-                                                    <input id="title" name="authorEmail" defaultValue={userEmail} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                    <label className="text-base-content dark:text-gray-200" htmlFor="username">Author Email</label>
+                                                    <input id="title" name="authorEmail" defaultValue={userEmail} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 </div>
                                                 <div>
-                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="username">PDF Link</label>
-                                                    <input id="title" name="pdf" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                    <label className="text-base-content dark:text-gray-200" htmlFor="username">PDF Link</label>
+                                                    <input id="title" name="pdf" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 </div>
 
                                                 <div>
-                                                    <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Examinee Description</label>
-                                                    <input id="examineeDescription" name="examineeDescription" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                    <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Examinee Description</label>
+                                                    <input id="examineeDescription" name="examineeDescription" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 </div>
 
                                             </div>

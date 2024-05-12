@@ -15,7 +15,7 @@ const PendingAssignments = () => {
                         <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                             <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
                                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                    <thead className="bg-gray-50 dark:bg-gray-800">
+                                    <thead className="bg-base-100 dark:bg-gray-800">
                                         <tr>
 
                                             <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -31,12 +31,15 @@ const PendingAssignments = () => {
                                                 Status
                                             </th>
                                             <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                Preview
+                                            </th>
+                                            <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                 Actions
                                             </th>
 
                                         </tr>
                                     </thead>
-                                    <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                                    <tbody className="bg-base-100 divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                                         {
                                             pendingItems.filter(pend => pend.status === 'pending')
                                             .map(item =><PendingCard key={item._id} item={item} pendingItems={pendingItems} setPendingItems={setPendingItems}></PendingCard>
@@ -73,29 +76,29 @@ const PendingAssignments = () => {
                                                 //                 <div className="modal-box">
                                                 //                     <h3 className="font-bold text-lg">Hello!</h3>
 
-                                                //                     <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+                                                //                     <section className="max-w-4xl p-6 mx-auto bg-base-100 rounded-md shadow-md dark:bg-gray-800">
                                                 //                         <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Submit Your Assignment</h2>
 
                                                 //                         <form onSubmit={handleSubmit}>
                                                 //                             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                                                 //                                 <div>
                                                 //                                     <label className="text-gray-700 dark:text-gray-200" htmlFor="username">Title</label>
-                                                //                                     <input id="title" name="title" readOnly defaultValue={title} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                //                                     <input id="title" name="title" readOnly defaultValue={title} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 //                                 </div>
 
                                                 //                                 <div>
                                                 //                                     <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Description</label>
-                                                //                                     <input id="description" name="description" readOnly defaultValue={description} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                //                                     <input id="description" name="description" readOnly defaultValue={description} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 //                                 </div>
 
                                                 //                                 <div>
                                                 //                                     <label className="text-gray-700 dark:text-gray-200" htmlFor="password">Thumbnail Image</label>
-                                                //                                     <input id="photo" name="photo" readOnly defaultValue={photo} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                //                                     <input id="photo" name="photo" readOnly defaultValue={photo} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 //                                 </div>
 
                                                 //                                 <div>
                                                 //                                     <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Marks</label>
-                                                //                                     <input id="mark" name="mark" readOnly defaultValue={mark} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                //                                     <input id="mark" name="mark" readOnly defaultValue={mark} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 //                                 </div>
                                                 //                                 <div className="form-control">
                                                 //                                     <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Assignment Type</label>
@@ -110,26 +113,26 @@ const PendingAssignments = () => {
 
                                                 //                                 <div>
                                                 //                                     <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Due Time</label>
-                                                //                                     <input id="time" name="time" readOnly defaultValue={time} type="date" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                //                                     <input id="time" name="time" readOnly defaultValue={time} type="date" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 //                                 </div>
 
                                                 //                                 <div>
                                                 //                                     <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Author name</label>
-                                                //                                     <input id="authorName" name="authorName" defaultValue={userName} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                //                                     <input id="authorName" name="authorName" defaultValue={userName} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 //                                 </div>
 
                                                 //                                 <div>
                                                 //                                     <label className="text-gray-700 dark:text-gray-200" htmlFor="username">Author Email</label>
-                                                //                                     <input id="title" name="authorEmail" defaultValue={userEmail} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                //                                     <input id="title" name="authorEmail" defaultValue={userEmail} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 //                                 </div>
                                                 //                                 <div>
                                                 //                                     <label className="text-gray-700 dark:text-gray-200" htmlFor="username">PDF Link</label>
-                                                //                                     <input id="title" name="pdf" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                //                                     <input id="title" name="pdf" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 //                                 </div>
 
                                                 //                                 <div>
                                                 //                                     <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Examinee Description</label>
-                                                //                                     <input id="examineeDescription" name="examineeDescription" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                //                                     <input id="examineeDescription" name="examineeDescription" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                 //                                 </div>
 
                                                 //                             </div>

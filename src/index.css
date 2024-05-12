@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+.swal2-container {
+    z-index: 10000;
+    
+  }

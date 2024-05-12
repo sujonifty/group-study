@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { authContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import DarkTheme from './DarkTheme/DarkTheme';
 
 
 
@@ -25,8 +26,8 @@ const Navbar = () => {
     // console.log(user)
     
     const links2 = <>
-        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/mySubmission">My submission </NavLink>
-        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} >
+        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/mySubmission">My submission </NavLink>
+        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} >
             <button onClick={handleLogOut}>Logout</button>
         </NavLink>
     </>
@@ -45,17 +46,17 @@ const Navbar = () => {
                             {
                                 user ?
                                     <>
-                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/">Home</NavLink>
-                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/assignments">Assignments</NavLink>
-                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/createAssignments">Create Assignments</NavLink>
-                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/pendingAssignments">Pending Assignments</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/">Home</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/assignments">Assignments</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/createAssignments">Create Assignments</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/pendingAssignments">Pending Assignments</NavLink>
                                     </>
                                     :
                                     <>
-                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/">Home</NavLink>
-                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/assignments">Assignments</NavLink>
-                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/register">Register</NavLink>
-                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/login">Login</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/">Home</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/assignments">Assignments</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/register">Register</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/login">Login</NavLink>
                                     </>
                             }
                             
@@ -72,38 +73,41 @@ const Navbar = () => {
                         {
                             user ?
                                 <>
-                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/">Home</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/assignments">Assignments</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/createAssignments">Create Assignments</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/pendingAssignments">Pending Assignments</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/">Home</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/assignments">Assignments</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/createAssignments">Create Assignments</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/pendingAssignments">Pending Assignments</NavLink>
                                 </>
                                 :
                                 <>
-                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/">Home</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/assignments">Assignments</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/register">Register</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-500 text-white font-bold" : "btn hover:bg-orange-300 hover:text-white font-bold"} to="/login">Login</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/">Home</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/assignments">Assignments</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/register">Register</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/login">Login</NavLink>
                                 </>
                         }
 
 
                     </ul>
                 </div>
+                
                 {
                     user ?
                         <div className="navbar-end">
-                            <div className="dropdown dropdown-align dropdown-end">
+                            <DarkTheme></DarkTheme>
+                            <div className="dropdown dropdown-align ml-3 dropdown-end">
                                 <div tabIndex={0} role="button" className=" m-1">
                                     <div className="w-10 h-10 overflow-hidden border-2 border-gray-400 rounded-full">
                                         <img src={user.photoURL} title={user.displayName} className="object-cover w-full h-full" alt="userImg" />
                                     </div>
                                 </div>
-                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box ">
+                                <ul tabIndex={0} className="dropdown-content space-y-2 z-[1] menu p-2 shadow bg-base-100 rounded-box ">
                                     {links2}
                                 </ul>
                             </div>
                         </div>
-                        : ""
+                        : 
+                        <DarkTheme></DarkTheme>
                 }
             </div>
         </div>
