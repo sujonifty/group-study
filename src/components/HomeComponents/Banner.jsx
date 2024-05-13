@@ -59,15 +59,13 @@ const Banner = () => {
                     '--swiper-navigation-color': '#fff',
                     '--swiper-pagination-color': '#fff',
                 }}
-                spaceBetween={10}
-                centeredSlides={true}
                 speed={600}
                 parallax={true}
                 pagination={{
                     clickable: true,
                 }}
                 autoplay={{
-                    delay: 2500,
+                    delay: 4000,
                     disableOnInteraction: false,
                 }}
                 loop={true}
@@ -89,11 +87,10 @@ const Banner = () => {
                 <SwiperSlide className=' '>
                     <div className='lg:h-[32rem] rounded-xl  '>
                         <div className="title" data-swiper-parallax="-300">
-                            The Benefits of Group Study
+                        Benefits of Group Study
                         </div>
                         <div className="subtitle" data-swiper-parallax="-200">
-                            Enhancing Learning Through Collaboration
-                        </div>
+                            Boosting Learning Together                        </div>
                         <div className="text text-balance" data-swiper-parallax="-100">
                             <p>
                                 Group study enriches learning experiences by pooling diverse perspectives, fostering motivation, encouraging collaboration. It also promotes the development of crucial social and time management skills. Ultimately, it provides a supportive environment for students to learn from one another, enhance their academic abilities, and build lasting connections.                            </p>
@@ -103,10 +100,10 @@ const Banner = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="title" data-swiper-parallax="-300">
-                        The Benefits of Collaborative Learning
+                    Group Learning Benefits
                     </div>
                     <div className="subtitle" data-swiper-parallax="-200">
-                        Enhancing Academic Performance Together
+                    Elevating Performance: Study
                     </div>
                     <div className="text " data-swiper-parallax="-100">
                         <p>
@@ -117,23 +114,23 @@ const Banner = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="title" data-swiper-parallax="-300">
-                        The Power of group Learning
+                    Power of group Learning
                     </div>
                     <div className="subtitle" data-swiper-parallax="-200">
-                        Strengthening Academic Achievement through Collaboration
-                    </div>
+                    Cooperative Learning
+                    </div>                    
                     <div className="text" data-swiper-parallax="-100">
                         <p>
-                            Group study offers a myriad of benefits, enriching academic experiences by bringing together diverse perspectives, fostering motivation, and promoting collaboration. Moreover, it cultivates vital social and time management skills. In essence, it creates a supportive environment where students can learn from each other, enhance their academic prowess, and establish enduring bonds.
+                        Cooperative Learning offers a myriad of benefits, enriching academic experiences by bringing together diverse perspectives, fostering motivation, and promoting collaboration. Moreover, it cultivates vital social and time management skills. In essence, it creates a supportive environment where students can learn from each other, enhance their academic prowess, and establish enduring bonds.
                         </p>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="title" data-swiper-parallax="-300">
-                        Enhancing Learning Through Collaboration
+                    Advantages of Group Study
                     </div>
                     <div className="subtitle" data-swiper-parallax="-200">
-                        The Advantages of Group Study
+                        Collaborative Learning
                     </div>
                     <div className="text" data-swiper-parallax="-100">
                         <p>
@@ -143,10 +140,10 @@ const Banner = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="title" data-swiper-parallax="-300">
-                        Maximizing group Learning Potential
+                        Group Learning Potential
                     </div>
                     <div className="subtitle" data-swiper-parallax="-200">
-                        Unleashing Academic Excellence Through Collaboration
+                       Excellence Through Collaboration
                     </div>
                     <div className="text" data-swiper-parallax="-100">
                         <p>
