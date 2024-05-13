@@ -49,7 +49,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
         else {
             Swal.fire({
                 title: "You can't delete!",
-                text: "Only owner can delete it",
+                text: "Only author can delete it",
                 imageUrl: "https://i.ibb.co/jvhQF0Y/opps.webp",
                 imageWidth: 400,
                 imageHeight: 200,

@@ -22,7 +22,7 @@ const CardDetails = () => {
         const status = "pending"
         const info = { title, userName, userEmail, photo, mark, time, level, description, examineeDescription, pdf, status,authorEmail, authorName, examineeName, examineeEmail, examineePhoto }
         
-        console.log(info);
+        console.log(pdf);
         fetch('http://localhost:5000/submittedAssignment', {
             method: 'POST',
             headers: {

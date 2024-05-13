@@ -3,7 +3,7 @@ import errorImg from "../../assets/error.jpg";
 
 const ErrorPage = () => {
     return (
-        <div>
+        <div className="bg-base-100">
             <div className="flex justify-center items-center">
                 <img className="" src="https://i.ibb.co/b5yPJws/error.webp" alt="" />
             </div>
