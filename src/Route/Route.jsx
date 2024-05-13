@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             {
                 path: "/assignments",
                 element: <Assignment></Assignment>,
-                // loader: () => fetch('https://online-group-study-assignment-server-theta.vercel.app//assignments')
+                // loader: () => fetch('https://online-group-study-assignment-server-theta.vercel.app/assignments')
             },
             {
                 path: "/mySubmission",
@@ -36,12 +36,12 @@ const router = createBrowserRouter([
             {
                 path: "/cardDetails/:id",
                 element: <CardDetails></CardDetails>,
-                loader: ({ params }) => fetch(`https://online-group-study-assignment-server-theta.vercel.app//cardDetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-group-study-assignment-server-theta.vercel.app/cardDetails/${params.id}`)
             },
             {
                 path: "/update/:id",
                 element: <Update></Update>,
-                loader: ({ params }) => fetch(`https://online-group-study-assignment-server-theta.vercel.app//update/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-group-study-assignment-server-theta.vercel.app/update/${params.id}`)
             },
             {
                 path: "/register",
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <PendingAssignments></PendingAssignments>
                 </PrivateRoute>,
-                loader: () => fetch('https://online-group-study-assignment-server-theta.vercel.app//pendingAssignments')
+                loader: () => fetch('https://online-group-study-assignment-server-theta.vercel.app/pendingAssignments')
             },
             {
                 path: "/createAssignments",

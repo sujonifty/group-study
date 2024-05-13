@@ -11,8 +11,8 @@ const MySubmission = () => {
     // console.log(user.email)
     useEffect(() => {
        if(user?.email){
-        fetch(`https://online-group-study-assignment-server-theta.vercel.app//mySubmission?email=${user?.email}`,{credentials: 'include'})
-        // fetch(`https://online-group-study-assignment-server-theta.vercel.app//mySubmission/${user?.email}`)
+        fetch(`https://online-group-study-assignment-server-theta.vercel.app/mySubmission?email=${user?.email}`,{credentials: 'include'})
+        // fetch(`https://online-group-study-assignment-server-theta.vercel.app/mySubmission/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log("data",data)
@@ -34,7 +34,7 @@ const MySubmission = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://online-group-study-assignment-server-theta.vercel.app//submission/${_id}`, {
+                fetch(`https://online-group-study-assignment-server-theta.vercel.app/submission/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

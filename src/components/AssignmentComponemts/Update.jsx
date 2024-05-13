@@ -26,7 +26,7 @@ const {_id}=item;
         const updateInfo = { authorName, authorEmail, editorName, editorEmail,editorPhoto, title, photo, mark, time, level, description }
         console.log(updateInfo)
         //sent data to the server site
-        fetch(`https://online-group-study-assignment-server-theta.vercel.app//updateAssignment/${_id}`, {
+        fetch(`https://online-group-study-assignment-server-theta.vercel.app/updateAssignment/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

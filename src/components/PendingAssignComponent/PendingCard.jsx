@@ -17,7 +17,7 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
         const info = { obtainMark, feedback, status }
 
         // console.log(info);
-        fetch(`https://online-group-study-assignment-server-theta.vercel.app//giveMark/${_id}`, {
+        fetch(`https://online-group-study-assignment-server-theta.vercel.app/giveMark/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -47,7 +47,7 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
 
 
     useEffect(() => {
-        fetch('https://online-group-study-assignment-server-theta.vercel.app//pendingAssignments')
+        fetch('https://online-group-study-assignment-server-theta.vercel.app/pendingAssignments')
             .then(res => res.json())
             .then(data => {
                 // console.log("data",data)

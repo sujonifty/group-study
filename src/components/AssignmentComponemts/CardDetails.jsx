@@ -23,7 +23,7 @@ const CardDetails = () => {
         const info = { title, userName, userEmail, photo, mark, time, level, description, examineeDescription, pdf, status, authorEmail, authorName, examineeName, examineeEmail, examineePhoto }
 
         console.log(pdf);
-        fetch('https://online-group-study-assignment-server-theta.vercel.app//submittedAssignment', {
+        fetch('https://online-group-study-assignment-server-theta.vercel.app/submittedAssignment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
