@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useLoaderData } from "react-router-dom";
-
+import { useLoaderData} from "react-router-dom";
 
 const Update = () => {
     const { user } = useContext(authContext);
@@ -27,7 +26,7 @@ const {_id}=item;
         const updateInfo = { authorName, authorEmail, editorName, editorEmail,editorPhoto, title, photo, mark, time, level, description }
         console.log(updateInfo)
         //sent data to the server site
-        fetch(`http://localhost:5000/updateAssignment/${_id}`, {
+        fetch(`https://online-group-study-assignment-server-theta.vercel.app//updateAssignment/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -44,8 +43,12 @@ const {_id}=item;
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })
+                    
                 }
+                
             })
+            
+          
     }
     return (
         <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">

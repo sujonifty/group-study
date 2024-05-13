@@ -44,15 +44,17 @@ const AuthProvider = ({ children }) => {
 
             setUser(currentUser);
             setLoading(false);
+// https://online-group-study-assignment-server-theta.vercel.app/
 
             if (currentUser) {
-                axios.post("http://localhost:5000/jwtAuth", loggedUser, { withCredentials: true })
+               
+                axios.post("https://online-group-study-assignment-server-theta.vercel.app//jwtAuth", loggedUser, { withCredentials: true })
                     .then(res => {
-                        // console.log( 'token res',res.data);
+                        console.log( 'token res',res.data);
                     })
             }
             else {
-                axios.post("http://localhost:5000/remove", loggedUser, { withCredentials: true })
+                axios.post("https://online-group-study-assignment-server-theta.vercel.app//remove", loggedUser, { withCredentials: true })
                     .then(res => {
                         console.log('token remove', res.data);
                     })

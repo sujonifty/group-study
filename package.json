@@ -20,8 +20,10 @@
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.23.0",
     "react-tabs": "^6.0.2",
+    "react-toastify": "^10.0.5",
     "sort-by": "^1.2.0",
-    "sweetalert2": "^11.10.8"
+    "sweetalert2": "^11.10.8",
+    "swiper": "^11.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

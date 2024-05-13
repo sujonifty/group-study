@@ -9,11 +9,11 @@ const Assignment = () => {
     // const assign = useLoaderData();
     const [assignments, setAssignments] = useState([]);
     const [cardItem, setCardItem] = useState(0);
-    const [itemsPerPage, setItemsPerPage] = useState(3);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(0);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/assignments?page=${currentPage}&&size=${itemsPerPage}`)
+        fetch(`https://online-group-study-assignment-server-theta.vercel.app//assignments?page=${currentPage}&&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setAssignments(data))
     }, [currentPage,itemsPerPage]);
@@ -22,7 +22,7 @@ const Assignment = () => {
     const allPages = [...Array(pageNumber).keys()];
 
     useEffect(() => {
-        fetch('http://localhost:5000/assignmentNumber')
+        fetch('https://online-group-study-assignment-server-theta.vercel.app//assignmentNumber')
             .then(res => res.json())
             .then(data => setCardItem(data.count))
     }, [])
@@ -71,13 +71,11 @@ console.log(cardItem)
                                 }
                                 <button onClick={handleNextPage} className="btn">Next</button>
                                 <select onChange={handleItemPerPage} name="" id="" value={itemsPerPage}>
-                                    <option value="3">3</option>
-                                    <option value="6">6</option>
-                                    <option value="9">9</option>
-                                    <option value="12">12</option>
-                                    <option value="15">15</option>
-                                    <option value="18">18</option>
-                                    <option value="21">21</option>
+                                    <option value="5">5</option>
+                                    <option value="12">10</option>
+                                    <option value="15">20</option>
+                                    <option value="18">30</option>
+                                    <option value="21">40</option>
                                 </select>
                             </div>
                         </div>
