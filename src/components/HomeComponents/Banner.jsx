@@ -22,7 +22,7 @@ import 'swiper/css/navigation';
 import './banner.css';
 
 // import required modules
-import { Parallax, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Parallax, Pagination, Navigation } from 'swiper/modules';
 
 const Banner = () => {
     return (
@@ -59,13 +59,20 @@ const Banner = () => {
                     '--swiper-navigation-color': '#fff',
                     '--swiper-pagination-color': '#fff',
                 }}
+                spaceBetween={10}
+                centeredSlides={true}
                 speed={600}
                 parallax={true}
                 pagination={{
                     clickable: true,
                 }}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                loop={true}
                 navigation={true}
-                modules={[Parallax, Pagination, Navigation]}
+                modules={[Autoplay, Parallax, Pagination, Navigation]}
                 className="mySwiper rounded-xl"
             >
                 <div
@@ -82,68 +89,68 @@ const Banner = () => {
                 <SwiperSlide className=' '>
                     <div className='lg:h-[32rem] rounded-xl  '>
                         <div className="title" data-swiper-parallax="-300">
-                        The Benefits of Group Study
+                            The Benefits of Group Study
                         </div>
                         <div className="subtitle" data-swiper-parallax="-200">
-                        Enhancing Learning Through Collaboration
+                            Enhancing Learning Through Collaboration
                         </div>
                         <div className="text text-balance" data-swiper-parallax="-100">
                             <p>
-                            Group study enriches learning experiences by pooling diverse perspectives, fostering motivation, encouraging collaboration. It also promotes the development of crucial social and time management skills. Ultimately, it provides a supportive environment for students to learn from one another, enhance their academic abilities, and build lasting connections.                            </p>
-                            
+                                Group study enriches learning experiences by pooling diverse perspectives, fostering motivation, encouraging collaboration. It also promotes the development of crucial social and time management skills. Ultimately, it provides a supportive environment for students to learn from one another, enhance their academic abilities, and build lasting connections.                            </p>
+
                         </div>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="title" data-swiper-parallax="-300">
-                    The Benefits of Collaborative Learning
+                        The Benefits of Collaborative Learning
                     </div>
                     <div className="subtitle" data-swiper-parallax="-200">
-                    Enhancing Academic Performance Together
+                        Enhancing Academic Performance Together
                     </div>
                     <div className="text " data-swiper-parallax="-100">
                         <p>
-                        Collaborative learning, through group study, enriches academic experiences by pooling diverse perspectives, fostering motivation, and encouraging collaboration. It also cultivates essential social and time management skills. Ultimately, it offers a supportive environment where students can learn from one another, improve their academic abilities, and forge lasting connections.
+                            Collaborative learning, through group study, enriches academic experiences by pooling diverse perspectives, fostering motivation, and encouraging collaboration. It also cultivates essential social and time management skills. Ultimately, it offers a supportive environment where students can learn from one another, improve their academic abilities, and forge lasting connections.
                         </p>
-                        
+
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="title" data-swiper-parallax="-300">
-                    The Power of group Learning
+                        The Power of group Learning
                     </div>
                     <div className="subtitle" data-swiper-parallax="-200">
-                    Strengthening Academic Achievement through Collaboration
+                        Strengthening Academic Achievement through Collaboration
                     </div>
                     <div className="text" data-swiper-parallax="-100">
                         <p>
-                        Group study offers a myriad of benefits, enriching academic experiences by bringing together diverse perspectives, fostering motivation, and promoting collaboration. Moreover, it cultivates vital social and time management skills. In essence, it creates a supportive environment where students can learn from each other, enhance their academic prowess, and establish enduring bonds.
-                        </p>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="title" data-swiper-parallax="-300">
-                    Enhancing Learning Through Collaboration
-                    </div>
-                    <div className="subtitle" data-swiper-parallax="-200">
-                    The Advantages of Group Study
-                    </div>
-                    <div className="text" data-swiper-parallax="-100">
-                        <p>
-                        Group study facilitates a deeper understanding and improved academic performance by leveraging diverse perspectives, fostering motivation, and encouraging collaboration. It also nurtures essential social and time management skills, creating a supportive environment where students learn from one another, enhance their academic abilities, and forge lasting connections.
+                            Group study offers a myriad of benefits, enriching academic experiences by bringing together diverse perspectives, fostering motivation, and promoting collaboration. Moreover, it cultivates vital social and time management skills. In essence, it creates a supportive environment where students can learn from each other, enhance their academic prowess, and establish enduring bonds.
                         </p>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="title" data-swiper-parallax="-300">
-                    Maximizing group Learning Potential
+                        Enhancing Learning Through Collaboration
                     </div>
                     <div className="subtitle" data-swiper-parallax="-200">
-                    Unleashing Academic Excellence Through Collaboration
+                        The Advantages of Group Study
                     </div>
                     <div className="text" data-swiper-parallax="-100">
                         <p>
-                        Group study offers a multifaceted approach to learning, enriching educational experiences by harnessing diverse perspectives, fostering intrinsic motivation, and promoting collaborative problem-solving. Beyond academics, it cultivates vital social and time management skills, creating a supportive ecosystem where students synergize their strengths, bolster their understanding, and forge enduring bonds                        </p>
+                            Group study facilitates a deeper understanding and improved academic performance by leveraging diverse perspectives, fostering motivation, and encouraging collaboration. It also nurtures essential social and time management skills, creating a supportive environment where students learn from one another, enhance their academic abilities, and forge lasting connections.
+                        </p>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="title" data-swiper-parallax="-300">
+                        Maximizing group Learning Potential
+                    </div>
+                    <div className="subtitle" data-swiper-parallax="-200">
+                        Unleashing Academic Excellence Through Collaboration
+                    </div>
+                    <div className="text" data-swiper-parallax="-100">
+                        <p>
+                            Group study offers a multifaceted approach to learning, enriching educational experiences by harnessing diverse perspectives, fostering intrinsic motivation, and promoting collaborative problem-solving. Beyond academics, it cultivates vital social and time management skills, creating a supportive ecosystem where students synergize their strengths, bolster their understanding, and forge enduring bonds                        </p>
                     </div>
                 </SwiperSlide>
             </Swiper>
