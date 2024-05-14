@@ -39,11 +39,11 @@ const CreateAssignments = () => {
             })
     }
     return (
-        <section className="max-w-4xl p-6 mx-auto border-base-200 border-2 bg-base text-base-content rounded-md shadow-md">
+        <section className="bg-base-100 text-base-content max-w-4xl p-6 mx-auto border-base-200 border-2 bg-base  rounded-md shadow-md">
             <h2 className="text-lg font-semibold text-base-content capitalize ">Create Your Assignment</h2>
 
             <form onSubmit={handleAddAssignment}>
-                <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 ">
                     <div>
                         <label className="text-base-content" htmlFor="username">Title</label>
                         <input id="title" name="title" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />

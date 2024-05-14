@@ -20,7 +20,9 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('https://online-group-study-assignment-server-theta.vercel.app/feature')
+
             },
             {
                 path: "/assignments",

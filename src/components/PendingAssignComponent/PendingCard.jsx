@@ -84,9 +84,13 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
                 <button className="btn" onClick={() => document.getElementById('my_modal_4').showModal()}>preview</button>
                 <dialog id="my_modal_4" className="modal">
                     <div className="modal-box w-11/12 max-w-5xl">
-                        <iframe src={pdf} width="500" height="450">
-                            {/* https://www.clickdimensions.com/links/TestPDFfile.pdf */}
-                        </iframe>
+                        {/* <iframe src={pdf} width="500" height="450">
+                        </iframe> */}
+                        <embed
+                            className="w-full min-h-[400px]"
+                            src={pdf}
+                        ></embed>
+                        <p>{examineeDescription}</p>
                         <div className="modal-action">
                             <form method="dialog">
                                 {/* if there is a button, it will close the modal */}
@@ -97,25 +101,11 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
                 </dialog>
             </td>
 
-            {/* onClick={
-                            (examineeEmail !== user.email)? 
-                            () => document.getElementById('my_modal_5').showModal()
-                            :
-                            Swal.fire({
-                                title: "You are a Examinee!",
-                                text: "You can't give marks!",
-                                imageUrl: "https://i.ibb.co/jvhQF0Y/opps.webp",
-                                imageWidth: 400,
-                                imageHeight: 200,
-                                imageAlt: "Custom image"
-                            })
-                        } */}
-
 
             <td className="px-4 py-4 text-sm whitespace-nowrap">
                 <div className="flex items-center gap-x-6">
                     <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>
-                        Give Markr
+                        Give Mark
                     </button>
                     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                         <div className="modal-box">

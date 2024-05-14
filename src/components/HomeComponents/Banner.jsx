@@ -1,17 +1,4 @@
 
-// import { Swiper, SwiperSlide } from 'swiper/react';
-
-// import 'swiper/css';
-// import 'swiper/css/pagination';
-// import 'swiper/css/navigation';
-//  import './banner.css';
-
-// // import required modules
-// import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
-
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -53,7 +40,7 @@ const Banner = () => {
 
         //     </Swiper>
         // </>
-        < div className='my-20'>
+        < div className='my-20 -z-10'>
             <Swiper
                 style={{
                     '--swiper-navigation-color': '#fff',
@@ -71,7 +58,7 @@ const Banner = () => {
                 loop={true}
                 navigation={true}
                 modules={[Autoplay, Parallax, Pagination, Navigation]}
-                className="mySwiper rounded-xl"
+                className="mySwiper rounded-xl bg-base-100 "
             >
                 <div
                     slot="container-start"

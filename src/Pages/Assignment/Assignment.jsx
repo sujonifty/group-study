@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import AssignmentCard from "../../components/Assignment/AssignmentCard";
 import 'react-tabs/style/react-tabs.css';
 import PropTypes from 'prop-types';
 
 const Assignment = () => {
-    // const assign = useLoaderData();
     const [assignments, setAssignments] = useState([]);
     const [cardItem, setCardItem] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(30);

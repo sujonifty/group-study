@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useLoaderData} from "react-router-dom";
+import { useLoaderData, useNavigation} from "react-router-dom";
 
 const Update = () => {
+    const navigate =useNavigation();
     const { user } = useContext(authContext);
     const item =useLoaderData();
     // const { _id, userEmail,userName, title, photo, mark, time, level, description } = item;
@@ -43,7 +44,7 @@ const {_id}=item;
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })
-                    
+                    navigate(-1)
                 }
                 
             })
@@ -51,32 +52,32 @@ const {_id}=item;
           
     }
     return (
-        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-            <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Update Assignment</h2>
+        <section className="bg-base-100 text-base-content max-w-4xl p-6 mx-auto  rounded-md shadow-md ">
+            <h2 className="text-lg font-semibold  capitalize ">Update Assignment</h2>
 
             <form onSubmit={handleUpdate}>
                 <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                     <div>
-                        <label className="text-gray-700 dark:text-gray-200" htmlFor="username">Title</label>
-                        <input id="title" name="title" defaultValue={item.title} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label  htmlFor="username">Title</label>
+                        <input id="title" name="title" defaultValue={item.title} type="text" className="block w-full px-4 py-2 mt-2  border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>
-                        <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Description</label>
-                        <input id="description" name="description" defaultValue={item.description} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label  htmlFor="emailAddress">Description</label>
+                        <input id="description" name="description" defaultValue={item.description} type="text" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>
-                        <label className="text-gray-700 dark:text-gray-200" htmlFor="password">Thumbnail Image</label>
-                        <input id="photo" name="photo" defaultValue={item.photo} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label  htmlFor="password">Thumbnail Image</label>
+                        <input id="photo" name="photo" defaultValue={item.photo} type="text" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>
-                        <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Marks</label>
-                        <input id="mark" name="mark" defaultValue={item.mark} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label  htmlFor="passwordConfirmation">Marks</label>
+                        <input id="mark" name="mark" defaultValue={item.mark} type="text" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
                     <div className="form-control">
-                        <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Assignment Type</label>
+                        <label  htmlFor="passwordConfirmation">Assignment Type</label>
                         <select name="level" className="select select-bordered w-full ">
                             <option defaultValue={item.level} selected>{item.level}</option>
                             <option>Easy</option>
@@ -87,18 +88,18 @@ const {_id}=item;
                     </div>
 
                     <div>
-                        <label className="text-gray-700 dark:text-gray-200" htmlFor="passwordConfirmation">Due Time</label>
-                        <input id="time" name="time" defaultValue={item.time} type="date" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label  htmlFor="passwordConfirmation">Due Time</label>
+                        <input id="time" name="time" defaultValue={item.time} type="date" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>
-                        <label className="text-gray-700 dark:text-gray-200" htmlFor="emailAddress">Author name</label>
-                        <input id="authorName" name="authorName" defaultValue={item.userName} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label  htmlFor="emailAddress">Author name</label>
+                        <input id="authorName" name="authorName" defaultValue={item.userName} readOnly type="text" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>
-                        <label className="text-gray-700 dark:text-gray-200" htmlFor="username">Author Email</label>
-                        <input id="" name="authorEmail" defaultValue={item.userEmail} readOnly type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label  htmlFor="username">Author Email</label>
+                        <input id="" name="authorEmail" defaultValue={item.userEmail} readOnly type="text" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                 </div>

@@ -42,19 +42,6 @@ const CardDetails = () => {
                         confirmButtonText: 'Done'
                     })
 
-                    // setToast(
-                    //     Swal.fire({
-                    //         title: 'Success!',
-                    //         text: 'Assign mark & feedback Successfully',
-                    //         icon: 'success',
-                    //         confirmButtonText: 'Done',
-                    //         style: {
-                    //             zIndex: '9999 !important'
-                    //           }
-                    //     })
-                    // )
-
-
                 }
 
             })

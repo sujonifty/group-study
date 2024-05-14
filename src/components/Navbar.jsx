@@ -101,7 +101,7 @@ const Navbar = () => {
                                         <img src={user.photoURL} title={user.displayName} className="object-cover w-full h-full" alt="userImg" />
                                     </div>
                                 </div>
-                                <ul tabIndex={0} className="dropdown-content space-y-2 z-[1] menu p-2 shadow bg-base-100 rounded-box ">
+                                <ul tabIndex={0} className="dropdown-content space-y-2 z-20 menu p-2 shadow bg-base-100 rounded-box ">
                                     {links2}
                                 </ul>
                             </div>

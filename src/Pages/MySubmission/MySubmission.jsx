@@ -21,7 +21,7 @@ const MySubmission = () => {
        }
     }, [user])
 
-    
+    console.log(myAssignments)
     const handleDelete = (_id) => {
         Swal.fire({
             title: "Are you sure?",
