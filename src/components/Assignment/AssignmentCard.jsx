@@ -10,7 +10,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
 
     //delete section
     const handleDelete = (_id) => {
-        if (userEmail === user.email) {
+        if (userEmail === user?.email) {
             Swal.fire({
                 title: "Are you sure?",
                 text: "Once deleted, this item cannot be recovered",
@@ -46,6 +46,7 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
 
             });
         }
+        
         else {
             Swal.fire({
                 title: "You can't delete!",

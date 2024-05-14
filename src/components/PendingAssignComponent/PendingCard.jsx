@@ -1,46 +1,60 @@
 
 import Swal from "sweetalert2";
 import PropTypes from 'prop-types';
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { authContext } from "../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const PendingCard = ({ item, pendingItems, setPendingItems }) => {
     const { user } = useContext(authContext)
     const { _id, title, mark, examineeDescription, pdf, status, examineeName, examineeEmail, examineePhoto } = item
-
+    
     const handleSubmit = (e) => {
+        if (user.email !== examineeEmail) {
 
-        e.preventDefault();
-        const obtainMark = e.target.obtainMark.value;
-        const feedback = e.target.feedback.value;
-        const status = "completed"
-        const info = { obtainMark, feedback, status }
 
-        // console.log(info);
-        fetch(`https://online-group-study-assignment-server-theta.vercel.app/giveMark/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(info)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.modifiedCount > 0) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Assign mark & feedback Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Done'
-                    })
-                    const remains = pendingItems.filter(singleItem => singleItem._id !== _id);
-                    setPendingItems(remains);
-                }
+            e.preventDefault();
+            const obtainMark = e.target.obtainMark.value;
+            const feedback = e.target.feedback.value;
+            const status = "completed"
+            const info = { obtainMark, feedback, status }
+
+            // console.log(info);
+            fetch(`https://online-group-study-assignment-server-theta.vercel.app/giveMark/${_id}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(info)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data);
+                    if (data.modifiedCount > 0) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Assign mark & feedback Successfully',
+                            icon: 'success',
+                            confirmButtonText: 'Done'
+                        })
+                        const remains = pendingItems.filter(singleItem => singleItem._id !== _id);
+                        setPendingItems(remains);
+                    }
+                })
+        }
+
+        else {
+            Swal.fire({
+                position: "top-end",
+                title: 'You can not give mark!',
+                text: 'Does not assign mark & feedback ',
+                icon: 'warning',
+                confirmButtonText: 'Cool',
+                z: 20000
             })
 
-
-
+            
+        }
 
 
     }
@@ -84,13 +98,13 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
                 <button className="btn" onClick={() => document.getElementById('my_modal_4').showModal()}>preview</button>
                 <dialog id="my_modal_4" className="modal">
                     <div className="modal-box w-11/12 max-w-5xl">
-                        {/* <iframe src={pdf} width="500" height="450">
-                        </iframe> */}
-                        <embed
+                        <iframe src={pdf} width="500" height="450">
+                        </iframe>
+                        {/* <embed
                             className="w-full min-h-[400px]"
                             src={pdf}
-                        ></embed>
-                        <p>{examineeDescription}</p>
+                        ></embed> */}
+                        <p className="mt-3">{examineeDescription}</p>
                         <div className="modal-action">
                             <form method="dialog">
                                 {/* if there is a button, it will close the modal */}
@@ -127,7 +141,7 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
                                         </div>
                                         <div>
                                             <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Give Marks</label>
-                                            <input id="obtainMark" name="obtainMark" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                            <input id="obtainMark" max={mark} min={0} name="obtainMark" type="number" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                         </div>
 
                                         <div>
@@ -136,7 +150,7 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
                                         </div>
 
                                     </div>
-
+                                    
                                     <div className="flex justify-center mt-6">
                                         <input type="submit" value="Submit" className="font-bold px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-orange-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" />
                                     </div>
@@ -153,67 +167,7 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
                     </dialog>
                 </div>
             </td>
-            {/* {
-                (examineeEmail===user.email)?
-                <td className="px-4 py-4 text-sm whitespace-nowrap">
-                    <div className="flex items-center gap-x-6">
-                        <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>Give Marks</button>
-                        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                            <div className="modal-box">
-                                <h3 className="font-bold text-lg">Give feedback for this assignment</h3>
 
-                                <section className="max-w-4xl p-6 mx-auto bg-base-100 rounded-md shadow-md dark:bg-gray-800">
-                                    <h2 className="text-lg font-semibold text-base-content capitalize dark:text-white">Submit Your Assignment</h2>
-
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-                                            <div>
-                                                <label className="text-base-content dark:text-gray-200" htmlFor="username">PDF Link</label>
-                                                <input id="title" name="pdf" readOnly defaultValue={pdf} type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
-                                            </div>
-
-                                            <div>
-                                                <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Examinee Description</label>
-                                                <input id="examineeDescription" readOnly defaultValue={examineeDescription} name="examineeDescription" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
-                                            </div>
-                                            <div>
-                                                <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Give Marks</label>
-                                                <input id="obtainMark" name="obtainMark" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
-                                            </div>
-
-                                            <div>
-                                                <label className="text-base-content dark:text-gray-200" htmlFor="password">Give Feedback</label>
-                                                <input id="feedback" name="feedback" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
-                                            </div>
-
-                                        </div>
-
-                                        <div className="flex justify-center mt-6">
-                                            <input type="submit" value="Submit" className="font-bold px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-orange-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" />
-                                        </div>
-                                    </form>
-
-                                </section>
-                                <div className="modal-action">
-                                    <form method="dialog">
-                                        
-                                        <button className="btn">Close</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </dialog>
-                    </div>
-                </td>
-                :
-                Swal.fire({
-                    title: "You are a Examinee!",
-                    text: "You can't give marks!",
-                    imageUrl: "https://i.ibb.co/jvhQF0Y/opps.webp",
-                    imageWidth: 400,
-                    imageHeight: 200,
-                    imageAlt: "Custom image"
-                })
-            } */}
 
         </tr>
     );

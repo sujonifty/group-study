@@ -53,7 +53,7 @@ const Assignment = () => {
                     </TabList>
                     <TabPanel>
                         <div>
-                            <div className='bg-base-100 grid grid-cols-1 gap-5 mt-10 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                            <div className='my-10 space-y-5 bg-base-100 grid grid-cols-1 gap-5 mt-10 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                                 {assignments.filter(item => item.level === 'Easy')
                                     .map(assignment => (
                                         <AssignmentCard key={assignment._id} assignment={assignment} assignments={assignments} setAssignments={setAssignments}></AssignmentCard>
@@ -79,7 +79,7 @@ const Assignment = () => {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <div className='bg-base-100 grid grid-cols-1 gap-5 mt-10 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                        <div className='my-10 space-y-5 bg-base-100 grid grid-cols-1 gap-5 mt-10 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                             {assignments.filter(item => item.level === 'Medium')
                                 .map(assignment => (
                                     <AssignmentCard key={assignment._id} assignment={assignment}></AssignmentCard>
@@ -104,13 +104,13 @@ const Assignment = () => {
                             </div>
                     </TabPanel>
                     <TabPanel>
-                        <div className='bg-base-100 grid grid-cols-1 gap-5 mt-10 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                        <div className='my-10 space-y-5 bg-base-100 grid grid-cols-1 gap-5 mt-10 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                             {assignments.filter(item => item.level === 'Hard')
                                 .map(assignment => (
                                     <AssignmentCard key={assignment._id} assignment={assignment}></AssignmentCard>
                                 ))}
                         </div>
-                        <div className="space-x-5">
+                        <div className="space-x-5 my-5">
                                 <button onClick={handlePrevPage} className="btn">Prev</button>
                                 {
                                     allPages.map(page => <button

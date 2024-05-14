@@ -37,14 +37,19 @@ const router = createBrowserRouter([
             },
             {
                 path: "/cardDetails/:id",
-                element: <CardDetails></CardDetails>,
+                element: <PrivateRoute>
+                    <CardDetails></CardDetails>
+                </PrivateRoute>,
                 loader: ({ params }) => fetch(`https://online-group-study-assignment-server-theta.vercel.app/cardDetails/${params.id}`)
             },
             {
                 path: "/update/:id",
-                element: <Update></Update>,
+                element: <PrivateRoute>
+                    <Update></Update>
+                </PrivateRoute>,
                 loader: ({ params }) => fetch(`https://online-group-study-assignment-server-theta.vercel.app/update/${params.id}`)
             },
+           
             {
                 path: "/register",
                 element: <Register></Register>

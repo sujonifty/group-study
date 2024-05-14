@@ -73,7 +73,7 @@ const Banner = () => {
                 </div>
                 <SwiperSlide className=' '>
                     <div className='lg:h-[32rem] rounded-xl  '>
-                        <div className="title" data-swiper-parallax="-300">
+                        <div className="" data-swiper-parallax="-300">
                         Benefits of Group Study
                         </div>
                         <div className="subtitle" data-swiper-parallax="-200">
