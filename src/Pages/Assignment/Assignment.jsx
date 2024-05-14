@@ -82,7 +82,7 @@ const Assignment = () => {
                         <div className='my-10 space-y-5 bg-base-100 grid grid-cols-1 gap-5 mt-10 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                             {assignments.filter(item => item.level === 'Medium')
                                 .map(assignment => (
-                                    <AssignmentCard key={assignment._id} assignment={assignment}></AssignmentCard>
+                                    <AssignmentCard key={assignment._id} assignment={assignment} assignments={assignments} setAssignments={setAssignments} ></AssignmentCard>
                                 ))}
                         </div>
                         <div className="space-x-5">
@@ -107,7 +107,7 @@ const Assignment = () => {
                         <div className='my-10 space-y-5 bg-base-100 grid grid-cols-1 gap-5 mt-10 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                             {assignments.filter(item => item.level === 'Hard')
                                 .map(assignment => (
-                                    <AssignmentCard key={assignment._id} assignment={assignment}></AssignmentCard>
+                                    <AssignmentCard key={assignment._id} assignment={assignment} assignments={assignments} setAssignments={setAssignments} ></AssignmentCard>
                                 ))}
                         </div>
                         <div className="space-x-5 my-5">

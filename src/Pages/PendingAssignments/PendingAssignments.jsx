@@ -1,10 +1,25 @@
 import { useLoaderData } from "react-router-dom";
 import PendingCard from "../../components/PendingAssignComponent/PendingCard";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { authContext } from "../../Provider/AuthProvider";
 
 const PendingAssignments = () => {
+    const {user}=useContext(authContext);
     const allSubmitted = useLoaderData();
     const [pendingItems, setPendingItems] = useState(allSubmitted)
+    // const [pendingItems, setPendingItems] = useState([])
+
+    // useEffect(() => {
+    //     if(user?.email){
+    //      fetch(`https://online-group-study-assignment-server-theta.vercel.app/pendingAssignments?email=${user?.email}`,{credentials: 'include'})
+         
+    //          .then(res => res.json())
+    //          .then(data => {
+    //              // console.log("data",data)
+    //              setPendingItems(data)
+    //          })
+    //     }
+    //  }, [user])
 
     return (
         <div className="my-6 md:my-16">

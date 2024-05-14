@@ -10,6 +10,7 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
     const { _id, title, mark, examineeDescription, pdf, status, examineeName, examineeEmail, examineePhoto } = item
 
     const handleSubmit = (e) => {
+        console.log(user.email , examineeEmail)
         if (user.email !== examineeEmail) {
 
 

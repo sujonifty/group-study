@@ -18,6 +18,14 @@ const CreateAssignments = () => {
         const assignmentInfo = { title, userName, userEmail, photo, mark, time, level, description }
         console.log(level, mark)
         //sent data to the server site
+        // fetch(`https://online-group-study-assignment-server-theta.vercel.app/addAssignment?email=${user?.email}`,{credentials: 'include'}, {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(assignmentInfo)
+        // })
+        
         fetch('https://online-group-study-assignment-server-theta.vercel.app/addAssignment', {
             method: 'POST',
             headers: {

@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useLoaderData} from "react-router-dom";
+import { useLoaderData, useNavigate, useNavigation} from "react-router-dom";
 
 const Update = () => {
-    // const navigate =useNavigation();
+    const navigate =useNavigate();
     const { user } = useContext(authContext);
     const item =useLoaderData();
     // const { _id, userEmail,userName, title, photo, mark, time, level, description } = item;
@@ -13,7 +13,6 @@ const {_id}=item;
     const handleUpdate = (e) => {
         e.preventDefault();
         const title = e.target.title.value;
-        console.log({title})
         const description = e.target.description.value;
         const photo = e.target.photo.value;
         const mark = e.target.mark.value;
@@ -44,7 +43,7 @@ const {_id}=item;
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })
-                    // navigate(-1)
+                    navigate(-1)
                 }
                 
             })

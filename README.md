@@ -10,9 +10,10 @@ Click here to see the website:[https://edunest-20dc6.web.app/]
 * Delete: Only the user is able to delete an assignment who has created the
 assignment. A user is not able to delete assignments which are created
 by other users.
-*Update:  Any user can update any assignment.In details page, Editor info(name,email,photo) will show on card's View-Details section.
+* Update:  Any user can update any assignment.In details page, Editor info(name,email,photo) will show on card's View-Details section.
 * My Submission: users can see their submission assignments information which are added by individual user. User also delete his/her submission assignments.
-Mark
+* Mark & Feedback: Only the user isn't able to mark & feedback an assignment who has created the assignment. Others users ares able to mark & feedback the assignments.
+by other users.
 * Register: User can register for creating account in our website.
 * Login: If a user wants to see private route, he/she must be logged in. otherwise he/she can not see the private route.
 * Dark mode: applied dark mode in  all section
