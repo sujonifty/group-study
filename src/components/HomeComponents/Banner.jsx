@@ -40,7 +40,7 @@ const Banner = () => {
 
         //     </Swiper>
         // </>
-        < div className='my-20 -z-10'>
+        < div className='my-20 -z-50'>
             <Swiper
                 style={{
                     '--swiper-navigation-color': '#fff',

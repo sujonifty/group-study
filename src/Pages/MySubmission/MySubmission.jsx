@@ -21,7 +21,7 @@ const MySubmission = () => {
        }
     }, [user])
 
-    console.log(myAssignments)
+    // console.log(myAssignments)
     const handleDelete = (_id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -76,7 +76,7 @@ const MySubmission = () => {
                     </thead>
                     <tbody>
                         {
-                            myAssignments.map(item => <tr key={item._id}>
+                            myAssignments.filter(it => it.examineeEmail === user?.email).map(item => <tr key={item._id}>
                                 <td>{item.title}</td>
                                 <td>{item.mark}</td>
                                 <td>
