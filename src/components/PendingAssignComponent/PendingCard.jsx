@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import { IoMdEye } from "react-icons/io";
 
 const PendingCard = ({ item, pendingItems, setPendingItems }) => {
     const { user } = useContext(authContext)
     const { _id, title, mark, examineeDescription, pdf, status, examineeName, examineeEmail, examineePhoto } = item
-    
+
     const handleSubmit = (e) => {
         if (user.email !== examineeEmail) {
 
@@ -53,7 +54,7 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
                 z: 20000
             })
 
-            
+
         }
 
 
@@ -92,34 +93,80 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
             </td>
 
 
-
-            <td className="px-4 py-4 text-sm whitespace-nowrap">
-                {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                <button className="btn" onClick={() => document.getElementById('my_modal_4').showModal()}>preview</button>
-                <dialog id="my_modal_4" className="modal">
-                    <div className="modal-box w-11/12 max-w-5xl">
+            
+            <td>
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <button className="btn" onClick={() => document.getElementById('my_modal_2').showModal()}><IoMdEye /></button>
+            <dialog id="my_modal_2" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">This assignment is submitted by<span className="font-bold text-xl text-[#D2B48C]"> {examineeName}</span>  </h3>
+                    <p className="py-4">
                         <iframe src={pdf} width="500" height="450">
                         </iframe>
-                        {/* <embed
-                            className="w-full min-h-[400px]"
-                            src={pdf}
-                        ></embed> */}
-                        <p className="mt-3">{examineeDescription}</p>
-                        <div className="modal-action">
-                            <form method="dialog">
-                                {/* if there is a button, it will close the modal */}
-                                <button className="btn">Close</button>
-                            </form>
-                        </div>
-                    </div>
-                </dialog>
+                    </p>
+                </div>
+                <form method="dialog" className="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
             </td>
 
-
             <td className="px-4 py-4 text-sm whitespace-nowrap">
-                <div className="flex items-center gap-x-6">
+
+
+
+                {/* The button to open modal */}
+                <label htmlFor="my_modal_7" className="btn">Give Mark</label>
+
+                {/* Put this part before </body> tag */}
+                <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+                <div className="modal" role="dialog">
+                    <div className="modal-box">
+                        <h3 className="text-lg "><span className="font-bold text-xl text-[#D2B48C]"> Give feedback for this assignment</span>  </h3>
+                        <p className="py-4">
+                            <section className="max-w-4xl p-6 mx-auto bg-base-100 rounded-md shadow-md dark:bg-gray-800">
+                                <h2 className="text-lg font-semibold text-base-content capitalize dark:text-white">Give Your Feedback</h2>
+
+                                <form onSubmit={handleSubmit}>
+                                    <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                                        <div>
+                                            <label className="text-base-content dark:text-gray-200" htmlFor="username">PDF Link</label>
+                                            <input id="title" name="pdf" readOnly defaultValue={pdf} type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                        </div>
+
+                                        <div>
+                                            <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Examinee Description</label>
+                                            <input id="examineeDescription" readOnly defaultValue={examineeDescription} name="examineeDescription" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                        </div>
+                                        <div>
+                                            <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Give Marks</label>
+                                            <input id="obtainMark" max={mark} min={0} name="obtainMark" type="number" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                        </div>
+
+                                        <div>
+                                            <label className="text-base-content dark:text-gray-200" htmlFor="password">Give Feedback</label>
+                                            <input id="feedback" name="feedback" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                        </div>
+
+                                    </div>
+
+                                    <div className="flex justify-center mt-6">
+                                        <input type="submit" value="Submit" className="font-bold px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-orange-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" />
+                                    </div>
+                                </form>
+
+                            </section>
+                        </p>
+                    </div>
+                    <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
+                </div>
+
+
+
+
+                {/* <div className="flex items-center gap-x-6">
                     <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>
-                        Give Mark
+                        Give
                     </button>
                     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                         <div className="modal-box">
@@ -150,7 +197,7 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
                                         </div>
 
                                     </div>
-                                    
+
                                     <div className="flex justify-center mt-6">
                                         <input type="submit" value="Submit" className="font-bold px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-orange-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" />
                                     </div>
@@ -159,13 +206,13 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
                             </section>
                             <div className="modal-action">
                                 <form method="dialog">
-                                    {/* if there is a button in form, it will close the modal */}
+
                                     <button className="btn">Close</button>
                                 </form>
                             </div>
                         </div>
                     </dialog>
-                </div>
+                </div> */}
             </td>
 
 

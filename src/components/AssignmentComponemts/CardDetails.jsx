@@ -121,14 +121,16 @@ const CardDetails = () => {
                             {/*  submit assignment section */}
 
                             <div className="flex items-center gap-x-6">
-                                <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>
-                                    Take assignment
-                                </button>
-                                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                                    <div className="modal-box">
-                                        <h3 className="font-bold text-lg">Give feedback for this assignment</h3>
 
-                                        <section className="max-w-4xl p-6 mx-auto bg-base-100 rounded-md shadow-md dark:bg-gray-800">
+                                {/* The button to open modal */}
+                                <label htmlFor="my_modal_7" className="btn">Take Assignment</label>
+
+                                {/* Put this part before </body> tag */}
+                                <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+                                <div className="modal" role="dialog">
+                                    <div className="modal-box">
+                                        <h3 className="text-lg font-bold">Give feedback for this assignment</h3>
+                                        <div className="max-w-4xl p-6 mx-auto bg-base-100 rounded-md shadow-md dark:bg-gray-800">
                                             <h2 className="text-lg font-semibold text-base-content capitalize dark:text-white">Submit Your Assignment</h2>
 
                                             <form onSubmit={handleSubmit}>
@@ -179,7 +181,7 @@ const CardDetails = () => {
                                                     </div>
                                                     <div>
                                                         <label className="text-base-content dark:text-gray-200" htmlFor="username">PDF Link</label>
-                                                        <input id="title" name="pdf" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                                        <input id="title" name="pdf" type="text" placeholder="Send PDF link" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                                                     </div>
 
                                                     <div>
@@ -194,15 +196,11 @@ const CardDetails = () => {
                                                 </div>
                                             </form>
 
-                                        </section>
-                                        <div className="modal-action">
-                                            <form method="dialog">
-                                                {/* if there is a button in form, it will close the modal */}
-                                                <button className="btn">Close</button>
-                                            </form>
                                         </div>
                                     </div>
-                                </dialog>
+                                    <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
+                                </div>
+
                             </div>
                         </div>
 
@@ -210,7 +208,7 @@ const CardDetails = () => {
                 </div>
 
             </div>
-            
+
         </section>
     );
 };
