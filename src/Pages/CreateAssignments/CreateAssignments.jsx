@@ -39,8 +39,8 @@ const CreateAssignments = () => {
             })
     }
     return (
-        <section className="bg-base-100 text-base-content max-w-4xl p-6 mx-auto border-base-200 border-2 bg-base  rounded-md shadow-md">
-            <h2 className="text-lg font-semibold text-base-content capitalize ">Create Your Assignment</h2>
+        <section className="bg-base-100 my-6 md:my-16 text-base-content max-w-4xl p-6 mx-auto  border-2 bg-base  rounded-md shadow-md">
+            <h2 className="text-2xl text-center my-7 font-semibold text-base-content capitalize ">Create Your Assignment</h2>
 
             <form onSubmit={handleAddAssignment}>
                 <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 ">

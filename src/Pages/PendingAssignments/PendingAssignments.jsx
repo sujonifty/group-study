@@ -7,8 +7,8 @@ const PendingAssignments = () => {
     const [pendingItems, setPendingItems] = useState(allSubmitted)
 
     return (
-        <div>
-            <h1>Pending Assignments</h1>
+        <div className="my-6 md:my-16">
+            <h1 className="text-3xl md:text-5xl text-center my-6 md:my-10 font-semibold text-base-content">Pending Assignments Section</h1>
             <section className="container px-4 mx-auto">
                 <div className="flex flex-col">
                     <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

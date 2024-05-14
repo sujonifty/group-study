@@ -43,10 +43,10 @@ const Assignment = () => {
     }
     return (
         <div>
-            <h1>Assignments</h1>
+            <h1 className="text-3xl md:text-5xl text-center my-6 font-semibold text-base-content">All  Assignments Section</h1>
             <div>
                 <Tabs>
-                    <TabList>
+                    <TabList className="text-2xl text-base-content bg-base-100">
                         <Tab>Easy</Tab>
                         <Tab>Medium</Tab>
                         <Tab>Hard</Tab>

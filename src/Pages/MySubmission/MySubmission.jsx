@@ -62,7 +62,7 @@ const MySubmission = () => {
     // console.log(myAssignments);
     return (
         <div>
-            <table className="table">
+            <table className="table text-base-content">
                     {/* head */}
                     <thead>
                         <tr>
@@ -91,7 +91,7 @@ const MySubmission = () => {
                                 }
                                 </td>
                                 <td>
-                                    <NavLink><button onClick={() => handleDelete(item._id)} type="button" className=" btn flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50">Delete</button></NavLink>
+                                    <NavLink><button onClick={() => handleDelete(item._id)} type="button" className=" btn  flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50">Delete</button></NavLink>
                                 </td>
                             </tr>
                             )

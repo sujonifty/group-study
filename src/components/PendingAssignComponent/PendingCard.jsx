@@ -1,9 +1,8 @@
 
 import Swal from "sweetalert2";
 import PropTypes from 'prop-types';
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { authContext } from "../../Provider/AuthProvider";
-import { Link } from "react-router-dom";
 import { IoMdEye } from "react-icons/io";
 
 const PendingCard = ({ item, pendingItems, setPendingItems }) => {
@@ -46,12 +45,11 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
 
         else {
             Swal.fire({
-                position: "top-end",
+                // position: "top-end",
                 title: 'You can not give mark!',
-                text: 'Does not assign mark & feedback ',
+                text: 'Examinee can not assign mark & feedback ',
                 icon: 'warning',
                 confirmButtonText: 'Cool',
-                z: 20000
             })
 
 
@@ -76,15 +74,15 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
                 <div className="flex items-center gap-x-2">
                     <img className="object-cover w-8 h-8 rounded-full" src={examineePhoto} alt="" />
                     <div>
-                        <h2 className="text-sm font-medium text-gray-800 dark:text-white">{examineeName}</h2>
-                        <p className="text-xs font-normal text-gray-600 dark:text-gray-400">{examineeEmail}</p>
+                        <h2 className="text-sm font-medium text-base-content dark:text-white">{examineeName}</h2>
+                        <p className="text-xs font-normal text-base-content dark:text-gray-400">{examineeEmail}</p>
                     </div>
                 </div>
             </td>
             <td className="px-4 py-4 text-sm text-base-content dark:text-gray-300 whitespace-nowrap">{title}</td>
             <td className="px-4 py-4 text-sm text-base-content dark:text-gray-300 whitespace-nowrap">{mark}</td>
             <td className="px-4 py-4 text-sm font-medium text-base-content whitespace-nowrap">
-                <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-gray-800 bg-emerald-100/70 dark:bg-gray-800">
+                <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-base-content bg-emerald-100/70 dark:bg-gray-800">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -98,8 +96,8 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
             {/* Open the modal using document.getElementById('ID').showModal() method */}
             <button className="btn" onClick={() => document.getElementById('my_modal_2').showModal()}><IoMdEye /></button>
             <dialog id="my_modal_2" className="modal">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">This assignment is submitted by<span className="font-bold text-xl text-[#D2B48C]"> {examineeName}</span>  </h3>
+                <div className="modal-box text-base-content">
+                    <h3 className="font-bold text-lg ">This assignment is submitted by<span className="font-bold text-xl text-[#D2B48C]"> {examineeName}</span>  </h3>
                     <p className="py-4">
                         <iframe src={pdf} width="500" height="450">
                         </iframe>
@@ -160,59 +158,7 @@ const PendingCard = ({ item, pendingItems, setPendingItems }) => {
                     </div>
                     <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
                 </div>
-
-
-
-
-                {/* <div className="flex items-center gap-x-6">
-                    <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>
-                        Give
-                    </button>
-                    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                        <div className="modal-box">
-                            <h3 className="font-bold text-lg">Give feedback for this assignment</h3>
-
-                            <section className="max-w-4xl p-6 mx-auto bg-base-100 rounded-md shadow-md dark:bg-gray-800">
-                                <h2 className="text-lg font-semibold text-base-content capitalize dark:text-white">Submit Your Assignment</h2>
-
-                                <form onSubmit={handleSubmit}>
-                                    <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-                                        <div>
-                                            <label className="text-base-content dark:text-gray-200" htmlFor="username">PDF Link</label>
-                                            <input id="title" name="pdf" readOnly defaultValue={pdf} type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
-                                        </div>
-
-                                        <div>
-                                            <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Examinee Description</label>
-                                            <input id="examineeDescription" readOnly defaultValue={examineeDescription} name="examineeDescription" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
-                                        </div>
-                                        <div>
-                                            <label className="text-base-content dark:text-gray-200" htmlFor="emailAddress">Give Marks</label>
-                                            <input id="obtainMark" max={mark} min={0} name="obtainMark" type="number" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
-                                        </div>
-
-                                        <div>
-                                            <label className="text-base-content dark:text-gray-200" htmlFor="password">Give Feedback</label>
-                                            <input id="feedback" name="feedback" type="text" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
-                                        </div>
-
-                                    </div>
-
-                                    <div className="flex justify-center mt-6">
-                                        <input type="submit" value="Submit" className="font-bold px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-orange-500 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" />
-                                    </div>
-                                </form>
-
-                            </section>
-                            <div className="modal-action">
-                                <form method="dialog">
-
-                                    <button className="btn">Close</button>
-                                </form>
-                            </div>
-                        </div>
-                    </dialog>
-                </div> */}
+        
             </td>
 
 

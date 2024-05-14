@@ -61,15 +61,15 @@ const AssignmentCard = ({ assignment, assignments, setAssignments }) => {
 
     // console.log(assignment)
     return (
-        <div className="bg-base-100 w-full max-w-sm overflow-hidden  rounded-lg shadow-2xl ">
-            <img className="object-cover object-center w-full h-56" src={photo} alt="avatar" />
+        <div className="bg-base-100 border-2 w-full max-w-sm overflow-hidden  rounded-lg shadow-2xl ">
+            <img className="object-fill object-center w-full h-56" src={photo} alt="avatar" />
             <div className="flex items-center px-6 py-3 bg-gray-900">
                 <h1 className="mx-3 text-lg font-semibold text-white">{title}</h1>
             </div>
             
 
             <div className="px-6 py-4 space-y-5  bg-base-100">
-                <h1 className="text-xl font-semibold text-base-content ">Tasks</h1>
+                
 
                 <p className="py-2  text-base-content">{description}</p>
 

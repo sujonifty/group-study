@@ -52,7 +52,7 @@ const {_id}=item;
           
     }
     return (
-        <section className="bg-base-100 text-base-content max-w-4xl p-6 mx-auto  rounded-md shadow-md ">
+        <section className="bg-base-100 border-2 my-6 md:my-16 text-base-content max-w-4xl p-6 mx-auto  rounded-md shadow-md ">
             <h2 className="text-lg font-semibold  capitalize ">Update Assignment</h2>
 
             <form onSubmit={handleUpdate}>
