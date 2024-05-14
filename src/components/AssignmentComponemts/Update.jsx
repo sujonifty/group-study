@@ -59,22 +59,22 @@ const {_id}=item;
                 <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                     <div>
                         <label  htmlFor="username">Title</label>
-                        <input id="title" name="title" defaultValue={item.title} type="text" className="block w-full px-4 py-2 mt-2  border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input id="title" name="title" required defaultValue={item.title} type="text" className="block w-full px-4 py-2 mt-2  border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>
                         <label  htmlFor="emailAddress">Description</label>
-                        <input id="description" name="description" defaultValue={item.description} type="text" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input id="description" name="description" required defaultValue={item.description} type="text" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>
                         <label  htmlFor="password">Thumbnail Image</label>
-                        <input id="photo" name="photo" defaultValue={item.photo} type="text" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input id="photo" name="photo" required defaultValue={item.photo} type="text" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>
                         <label  htmlFor="passwordConfirmation">Marks</label>
-                        <input id="mark" name="mark" defaultValue={item.mark} type="text" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input id="mark" name="mark" required defaultValue={item.mark} type="text" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
                     <div className="form-control">
                         <label  htmlFor="passwordConfirmation">Assignment Type</label>
@@ -89,7 +89,7 @@ const {_id}=item;
 
                     <div>
                         <label  htmlFor="passwordConfirmation">Due Time</label>
-                        <input id="time" name="time" defaultValue={item.time} type="date" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input id="time" name="time" required defaultValue={item.time} type="date" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div>
