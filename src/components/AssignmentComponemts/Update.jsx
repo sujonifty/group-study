@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useLoaderData, useNavigation} from "react-router-dom";
+import { useLoaderData} from "react-router-dom";
 
 const Update = () => {
-    const navigate =useNavigation();
+    // const navigate =useNavigation();
     const { user } = useContext(authContext);
     const item =useLoaderData();
     // const { _id, userEmail,userName, title, photo, mark, time, level, description } = item;
@@ -44,7 +44,7 @@ const {_id}=item;
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })
-                    navigate(-1)
+                    // navigate(-1)
                 }
                 
             })
