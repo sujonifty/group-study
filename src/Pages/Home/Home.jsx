@@ -10,7 +10,7 @@ const Home = () => {
     const features = allFeatures.slice(0, 12)
     return (
         <div className="bg-base-100">
-            <div className="mx-auto h-5 mb-10">
+            <div className="mx-auto h-5 my-10">
                 <TypeWriting></TypeWriting>
             </div>
             <Banner></Banner>
