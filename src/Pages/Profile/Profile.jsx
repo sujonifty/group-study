@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import { FaDeleteLeft } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
+import TypeWriting2 from "../../components/HomeComponents/TypeWriting2";
 
 const Profile = () => {
     const { user, setUser, createUpdate } = useContext(authContext);
@@ -34,8 +34,8 @@ const Profile = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/myAssignments?email=${user?.email}`)
-                //  fetch(`https://online-group-study-assignment-server-theta.vercel.app/myAssignments?email=${user?.email}`)
+            // fetch(`http://localhost:5000/myAssignments?email=${user?.email}`)
+                 fetch(`https://online-group-study-assignment-server-theta.vercel.app/myAssignments?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log("data",data)
@@ -56,8 +56,8 @@ const Profile = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/assignments/${_id}`, {
-                // fetch(`https://online-group-study-assignment-server-theta.vercel.app/assignments/${_id}`, {
+                // fetch(`http://localhost:5000/assignments/${_id}`, {
+                fetch(`https://online-group-study-assignment-server-theta.vercel.app/assignments/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -84,14 +84,18 @@ const Profile = () => {
     
     return (
 
-        <section>
+        <section className="text-base-content">
+            
+            <div className="mx-auto h-5 mb-10">
+                <TypeWriting2></TypeWriting2>
+            </div>
             <div className="drawer">
                 <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content">
+                <div className="drawer-content text-center mt-20">
                     {/* Page content here */}
-                    <label htmlFor="my-drawer" className="btn btn-ghost drawer-button">My Profile</label>
+                    <label htmlFor="my-drawer" className="btn text-base-content  bg-orange-500 btn-wide drawer-button">User Details</label>
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side z-30">
                     <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu pt-20 p-4 w-80 min-h-full bg-base-200 text-base-content">
                         {/* Sidebar content here */}
@@ -102,7 +106,7 @@ const Profile = () => {
                         </div>
 
                         {/* The button to open modal */}
-                        <label htmlFor="my_modal_7" className="btn m-5">Update Profile</label>
+                        <label htmlFor="my_modal_7" className="btn m-5 bg-orange-500 ">Update Profile</label>
                         <div className="divider"></div>
                         <div className="flex justify-center pt-2 space-x-4 align-center">
                             <a rel="noopener noreferrer" href="#" aria-label="GitHub" className="p-2 rounded-md dark:text-gray-800 hover:dark:text-violet-600">
@@ -160,7 +164,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-
+            <h1 className="text-3xl my-16 font-bold text-base-content text-center">My created Assignments: {myAssignments.length}</h1>
             {/* My Assignments */}
             <div className="overflow-x-auto">
                 <table className="table">

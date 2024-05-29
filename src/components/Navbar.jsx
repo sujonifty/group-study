@@ -24,15 +24,15 @@ const Navbar = () => {
             })
     }
     // console.log(user)
-    
+
     const links2 = <>
-        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/mySubmission">My submission </NavLink>
         <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/profile">My Profile </NavLink>
+        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/mySubmission">My submission </NavLink>
         <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} >
             <button onClick={handleLogOut}>Logout</button>
         </NavLink>
     </>
-   
+
 
     return (
         <div>
@@ -60,7 +60,7 @@ const Navbar = () => {
                                         <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/login">Login</NavLink>
                                     </>
                             }
-                            
+
 
                         </ul>
                     </div>
@@ -91,7 +91,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                
+
                 {
                     user ?
                         <div className="navbar-end">
@@ -107,7 +107,7 @@ const Navbar = () => {
                                 </ul>
                             </div>
                         </div>
-                        : 
+                        :
                         <DarkTheme></DarkTheme>
                 }
             </div>
