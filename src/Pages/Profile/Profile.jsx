@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { FaDeleteLeft } from "react-icons/fa6";
+import { MdDelete } from "react-icons/md";
 
 const Profile = () => {
     const { user, setUser, createUpdate } = useContext(authContext);
+    const [myAssignments, setMyAssignments] = useState([]);
+
     const handleUpdateProfile = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -27,6 +31,19 @@ const Profile = () => {
                 console.error(error);
             })
     }
+
+    useEffect(() => {
+        if (user?.email) {
+            fetch(`http://localhost:5000/myAssignments?email=${user?.email}`)
+                //  fetch(`https://online-group-study-assignment-server-theta.vercel.app/myAssignments?email=${user?.email}`)
+                .then(res => res.json())
+                .then(data => {
+                    // console.log("data",data)
+                    setMyAssignments(data)
+                })
+        }
+    }, [user])
+    console.log(myAssignments)
     return (
 
         <section>
@@ -104,6 +121,59 @@ const Profile = () => {
                         <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
                     </div>
                 </div>
+            </div>
+
+            {/* My Assignments */}
+            <div className="overflow-x-auto">
+                <table className="table">
+                    {/* head */}
+                    <thead>
+                        <tr>
+                            <th> No</th>
+                            <th> Image </th>
+                            <th>Title </th>
+                            <th>Total mark</th>
+                            <th>Category</th>
+                            <th>Acton</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* row 1 */}
+                        {
+                            myAssignments.map((item, index) => <tr key={item._id}>
+                                <td>{index + 1}</td>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img src={item.photo} alt="Avatar Tailwind CSS Component" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    {item.title}
+                                    <br />
+                                    <span>{item.time}</span>
+                                </td>
+                                <td>
+                                    {item.mark}
+                                </td>
+                                <td>
+                                    {item.level}
+                                </td>
+                                
+                                <th>
+                                    <button className="btn btn-ghost btn-xs">
+                                        <MdDelete className="text-2xl text-red-600"></MdDelete>
+                                    </button>
+                                </th>
+                            </tr>)
+                        }
+
+                    </tbody>
+
+                </table>
             </div>
         </section>
     );
