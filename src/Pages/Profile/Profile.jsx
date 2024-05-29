@@ -1,29 +1,60 @@
 import { useContext } from "react";
 import { authContext } from "../../Provider/AuthProvider";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
 
 const Profile = () => {
     const { user, setUser, createUpdate } = useContext(authContext);
-    console.log(user)
+    const handleUpdateProfile = (e) => {
+        e.preventDefault();
+        
+    }
     return (
 
         <section>
-            <Tabs>
-                <TabList>
-                    <Tab>Profile</Tab>
-                    <Tab>My Assignments</Tab>
-                </TabList>
-
-                <TabPanel>
-                    <div className="flex justify-center items-center">
-                        <div className="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
-                            <img src={user?.photoURL} alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
-                            <div className="space-y-4 text-center divide-y dark:divide-gray-300">
-                                <div className="my-2 space-y-1">
+             <div className="drawer">
+                        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+                        <div className="drawer-content">
+                            {/* Page content here */}
+                            <label htmlFor="my-drawer" className="btn btn-primary drawer-button">Open drawer</label>
+                        </div>
+                        <div className="drawer-side">
+                            <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+                            <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                                {/* Sidebar content here */}
+                                <img src={user?.photoURL} alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
+                                <div className=" mx-auto mt-5 space-y-1">
                                     <h2 className="text-xl font-semibold sm:text-2xl">{user?.displayName}</h2>
                                     <p className="px-5 text-xs sm:text-base dark:text-gray-600">{user?.email}</p>
                                 </div>
+                                {/* Open the modal using document.getElementById('ID').showModal() method */}
+<button className="btn" onClick={()=>document.getElementById('my_modal_2').showModal()}>Update Profile</button>
+<dialog id="my_modal_2" className="modal">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">Update Your Profile</h3>
+    <div className="my-5 card shrink-0 w-full max-w-sm shadow-2xl bg-base-200">
+                        <form onSubmit={handleUpdateProfile} className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Full name</span>
+                                </label>
+                                <input name="name"  id="name" type="text" defaultValue={user?.displayName} className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">PhotoURL</span>
+                                </label>
+                                <input name="photo" id="photo" type="photo" defaultValue={user?.photoURL} className="input input-bordered" required />
+
+                            </div>
+                            <div className="form-control mt-6">
+                                <button type="submit" className="btn bg-orange-500 text-white hover:text-black">Updated</button>
+                            </div>
+                        </form>
+                    </div>
+  </div>
+  <form method="dialog" className="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
                                 <div className="flex justify-center pt-2 space-x-4 align-center">
                                     <a rel="noopener noreferrer" href="#" aria-label="GitHub" className="p-2 rounded-md dark:text-gray-800 hover:dark:text-violet-600">
                                         <svg viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 fill-current">
@@ -46,13 +77,9 @@ const Profile = () => {
                                         </svg>
                                     </a>
                                 </div>
-                            </div>
+                            </ul>
                         </div>
                     </div>
-                </TabPanel>
-                <TabPanel>
-                </TabPanel>
-            </Tabs>
         </section>
     );
 };
