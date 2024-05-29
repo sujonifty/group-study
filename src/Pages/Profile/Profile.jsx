@@ -43,7 +43,45 @@ const Profile = () => {
                 })
         }
     }, [user])
-    console.log(myAssignments)
+    
+    const handleDelete = (_id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Once deleted, this item cannot be recovered",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/assignments/${_id}`, {
+                // fetch(`https://online-group-study-assignment-server-theta.vercel.app/assignments/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                imageUrl: "https://i.ibb.co/9WHSb7Y/delete.jpg",
+                                title: "Deleted!",
+                                text: "Your Assignment has been deleted.",
+                                imageWidth: 400,
+                                imageHeight: 200,
+                                icon: "success",
+                                imageAlt: "Custom image"
+                              });
+                            const remains = myAssignments.filter(singleItem => singleItem._id !== _id);
+                            setMyAssignments(remains);
+                        }
+                    })
+            }
+
+        });
+    }
+    
     return (
 
         <section>
@@ -164,7 +202,7 @@ const Profile = () => {
                                 </td>
                                 
                                 <th>
-                                    <button className="btn btn-ghost btn-xs">
+                                    <button onClick={() => handleDelete(item._id)} className="btn btn-ghost btn-xs">
                                         <MdDelete className="text-2xl text-red-600"></MdDelete>
                                     </button>
                                 </th>
