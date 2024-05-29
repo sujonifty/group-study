@@ -27,6 +27,7 @@ const Navbar = () => {
     
     const links2 = <>
         <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/mySubmission">My submission </NavLink>
+        <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} to="/profile">My Profile </NavLink>
         <NavLink className={({ isActive }) => isActive ? "btn bg-orange-400 " : "btn bg-base-300"} >
             <button onClick={handleLogOut}>Logout</button>
         </NavLink>

@@ -1,15 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import PropTypes from 'prop-types';
-import { useContext } from "react";
+import { useContext} from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-
+// import DatePicker from "react-datepicker"; 
 const CardDetails = () => {
     const cardInfo = useLoaderData();
     const { user } = useContext(authContext);
     const { _id, title, userName, userEmail, photo, mark, time, level, description } = cardInfo;
     // const [toast,setToast]=useState();
-
+    // const [startDate, setStartDate] = useState(time);
     const handleSubmit = (e) => {
         e.preventDefault();
         const authorName = e.target.authorName.value;
@@ -165,6 +165,10 @@ const CardDetails = () => {
 
                                                     </div>
 
+                                                    {/* <div>
+                                                        <label className="text-base-content dark:text-gray-200" htmlFor="passwordConfirmation">Due Time</label>
+                                                        <DatePicker  name="time" readOnly defaultValue={time} type="date" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" selected={startDate} onChange={(date) => setStartDate(date)} />
+                                                    </div> */}
                                                     <div>
                                                         <label className="text-base-content dark:text-gray-200" htmlFor="passwordConfirmation">Due Time</label>
                                                         <input  name="time" readOnly defaultValue={time} type="date" className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />

@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import MySubmission from "../Pages/MySubmission/MySubmission";
 import CardDetails from "../components/AssignmentComponemts/CardDetails";
 import Update from "../components/AssignmentComponemts/Update";
+import Profile from "../Pages/Profile/Profile";
 
 const router = createBrowserRouter([
     {
@@ -63,12 +64,18 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <PendingAssignments></PendingAssignments>
                 </PrivateRoute>,
-                loader: () => fetch('https://online-group-study-assignment-server-theta.vercel.app/pendingAssignments')
+                loader: () => fetch('https://online-group-study-assignment-server-theta.vercel.app/pendingAssignments',{credentials: 'include'})
             },
             {
                 path: "/createAssignments",
                 element: <PrivateRoute>
                     <CreateAssignments></CreateAssignments>,
+                </PrivateRoute>
+            },
+            {
+                path: "/profile",
+                element: <PrivateRoute>
+                    <Profile></Profile>,
                 </PrivateRoute>
             },
         ]

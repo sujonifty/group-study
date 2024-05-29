@@ -3,6 +3,7 @@ import Banner from "../../components/HomeComponents/Banner";
 import Faq from "../../components/HomeComponents/Faq";
 import FeatureCard from "../../components/HomeComponents/FeatureCard";
 import TypeWriting from "../../components/HomeComponents/TypeWriting";
+import Test from "../../components/Test";
 
 
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
                 <TypeWriting></TypeWriting>
             </div>
             <Banner></Banner>
-            
+            <Test></Test>
             <div className="space-y-5 text-center my-5 md:my-10">
                 <h1 className="text-3xl md:text-5xl text-center text-base-content">Exploring Our Group Study Features</h1>
                 <p className="bg-base-100  text-base-content text-xl text-justify p-4 md:text-balance w-full mx-auto md:w-11/12">

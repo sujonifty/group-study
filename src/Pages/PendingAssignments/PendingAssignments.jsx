@@ -6,7 +6,8 @@ import { authContext } from "../../Provider/AuthProvider";
 const PendingAssignments = () => {
     const {user}=useContext(authContext);
     const allSubmitted = useLoaderData();
-    const [pendingItems, setPendingItems] = useState(allSubmitted)
+    // console.log(allSubmitted)
+    const [pendingItems, setPendingItems] = useState(allSubmitted || []);
     // const [pendingItems, setPendingItems] = useState([])
 
     // useEffect(() => {

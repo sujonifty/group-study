@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Swal from "sweetalert2";
 import { authContext } from "../../Provider/AuthProvider";
-
+// import DatePicker from "react-datepicker";
 const CreateAssignments = () => {
     const { user, } = useContext(authContext);
-    
+    // const [startDate, setStartDate] = useState(new Date());
     const handleAddAssignment = (e) => {
         e.preventDefault();
         const title = e.target.title.value;
@@ -16,7 +16,7 @@ const CreateAssignments = () => {
         const userName = user?.displayName
         const userEmail = user?.email
         const assignmentInfo = { title, userName, userEmail, photo, mark, time, level, description }
-        console.log(level, mark)
+        console.log(time)
         //sent data to the server site
         // fetch(`https://online-group-study-assignment-server-theta.vercel.app/addAssignment?email=${user?.email}`,{credentials: 'include'}, {
         //     method: 'POST',
@@ -25,7 +25,7 @@ const CreateAssignments = () => {
         //     },
         //     body: JSON.stringify(assignmentInfo)
         // })
-        
+
         fetch('https://online-group-study-assignment-server-theta.vercel.app/addAssignment', {
             method: 'POST',
             headers: {
@@ -72,7 +72,7 @@ const CreateAssignments = () => {
                         <input id="mark" name="mark" min={0} type="number" required className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
                     <div className="form-control">
-                    <label className="text-base-content" htmlFor="passwordConfirmation">Assignment Type</label>
+                        <label className="text-base-content" htmlFor="passwordConfirmation">Assignment Type</label>
                         <select name="level" className="select select-bordered w-full ">
                             <option disabled selected>Difficulty Level</option>
                             <option>Easy</option>
@@ -82,6 +82,10 @@ const CreateAssignments = () => {
 
                     </div>
 
+                    {/* <div>
+                        <label className="text-base-content" htmlFor="passwordConfirmation">Due Time</label><br />
+                        <DatePicker name="time" required className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" selected={startDate} onChange={(date) => setStartDate(date)} />
+                    </div> */}
                     <div>
                         <label className="text-base-content" htmlFor="passwordConfirmation">Due Time</label>
                         <input id="time" name="time" type="date" required className="block w-full px-4 py-2 mt-2 text-base-content bg-base-100 border border-gray-200 rounded-md  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />

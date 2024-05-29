@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { authContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useLoaderData, useNavigate, useNavigation} from "react-router-dom";
-
+import { useLoaderData, useNavigate} from "react-router-dom";
+// import DatePicker from "react-datepicker";
 const Update = () => {
     const navigate =useNavigate();
     const { user } = useContext(authContext);
     const item =useLoaderData();
+    // const [startDate, setStartDate] = useState(item?.time);
     // const { _id, userEmail,userName, title, photo, mark, time, level, description } = item;
 const {_id}=item;
     //update section
@@ -87,9 +88,14 @@ const {_id}=item;
                     </div>
 
                     <div>
+                        
                         <label  htmlFor="passwordConfirmation">Due Time</label>
                         <input id="time" name="time" required defaultValue={item.time} type="date" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
+                    {/* <div>
+                        <label className="text-base-content" htmlFor="passwordConfirmation">Due Time</label><br />
+                        <DatePicker  name="time" required  type="date" className="block w-full px-4 py-2 mt-2  bg-base-100 text-base-content border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"     selected={startDate} onChange={(date) => setStartDate(date)} />
+                    </div> */}
 
                     <div>
                         <label  htmlFor="emailAddress">Author name</label>
